@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SubleaseActivity"></activity>
+        <activity android:name=".PostSubleaseActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="Post Sublease"/>
+        <activity android:name=".ProfileActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="Profile"/>
+        <activity android:name=".SubleaseActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="View Sublease"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
