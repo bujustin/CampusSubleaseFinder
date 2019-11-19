@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubleasorReview">
+
+    //Subleasor Review title
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/subleasorReviewTitle">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jane Doe"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    // grey dividing line
+    <View
+        android:id="@+id/greyDividingLine"
+        android:layout_alignBottom="@id/subleasorReviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    //Subleasor Reviews and Star rating
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reviewAndStarRatingLinearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/greyDividingLine"
+        android:layout_marginVertical="@dimen/sublease_margin_vertical">
+        //Reviews
+        <TextView
+            android:id="@+id/reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/greyDividingLine"
+            android:text="Reviews(14)"
+            android:textSize="25dp"
+            android:layout_marginVertical="@dimen/sublease_margin_vertical"/>
+
+        //Subleasor overall Rating Bar
+        <RatingBar
+            android:id="@+id/subleasorOverallRatingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/greyDividingLine"
+            android:layout_toRightOf="@id/reviews"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+    </LinearLayout>
+
+    //Write a Review Button
+    <Button
+        android:id="@+id/writeAReviewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/reviewAndStarRatingLinearLayout"
+        android:layout_marginVertical="@dimen/sublease_margin_vertical"
+        android:text="Write a Review"/>
+
+    //Review 1
+    <TextView
+        android:id="@+id/review1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/writeAReviewButton"
+        android:text="Mary Jane:
+        \nLorem ipsum dolor sit amet, consectetur adipiscing elit..."
+        android:textStyle="bold"
+        android:gravity="left|center_vertical"
+        android:background="@drawable/oval"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:padding="6dp">
+    </TextView>
+
+    //Sublease Rating Bar 1
+    <RatingBar
+        android:id="@+id/subleaseRatingBar1"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/writeAReviewButton"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignRight="@id/review1"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"/>
+
+    //Review 2
+    <TextView
+        android:id="@+id/review2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review1"
+        android:text="John Wick:
+        \nLorem ipsum dolor sit amet, consectetur adipiscing elit..."
+        android:textStyle="bold"
+        android:gravity="left|center_vertical"
+        android:background="@drawable/oval"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:padding="6dp">
+    </TextView>
+
+    //Sublease Rating Bar 2
+    <RatingBar
+        android:id="@+id/subleaseRatingBar2"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review1"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignRight="@id/review1"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"/>
+
+    //Review 3
+    <TextView
+        android:id="@+id/review3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review2"
+        android:text="John Doe:
+        \nLorem ipsum dolor sit amet, consectetur adipiscing elit..."
+        android:textStyle="bold"
+        android:gravity="left|center_vertical"
+        android:background="@drawable/oval"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:padding="6dp">
+    </TextView>
+
+    //Sublease Rating Bar 3
+    <RatingBar
+        android:id="@+id/subleaseRatingBar3"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review2"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignRight="@id/review2"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+    //Review 4
+    <TextView
+        android:id="@+id/review4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review3"
+        android:text="Bruce Wayne:
+        \nLorem ipsum dolor sit amet, consectetur adipiscing elit..."
+        android:textStyle="bold"
+        android:gravity="left|center_vertical"
+        android:background="@drawable/oval"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:padding="6dp">
+    </TextView>
+
+    //Sublease Rating Bar 4
+    <RatingBar
+        android:id="@+id/subleaseRatingBar4"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review3"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignRight="@id/review3"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+</RelativeLayout>
