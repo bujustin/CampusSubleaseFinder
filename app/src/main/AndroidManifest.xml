@@ -15,6 +15,9 @@
         <activity android:name=".ProfileActivity"
                   android:parentActivityName=".MainActivity"
                   android:label="Profile"/>
+        <activity android:name=".SubleaseActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="View Sublease"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
