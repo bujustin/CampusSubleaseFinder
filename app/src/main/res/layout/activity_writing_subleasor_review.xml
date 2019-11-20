@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WritingSubleasorReview">
+
+
+    //Write a Review title
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/writeAReviewTitle">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write A Review"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    // grey dividing line
+    <View
+        android:id="@+id/greyDividingLine"
+        android:layout_alignBottom="@id/writeAReviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    //Address and Rating
+    <TextView
+        android:id="@+id/addressAndRating"
+        android:layout_below="@id/greyDividingLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Name:   Jane Doe
+        \nRating:               "
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    //rating bar
+    <RatingBar
+        android:id="@+id/subleaseReviewRatingBar"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greyDividingLine"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="160dp"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+    <LinearLayout
+        android:id="@+id/writeAReviewAndPhotoLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addressAndRating"
+        android:layout_centerHorizontal="true">
+
+        //write a review text
+        <TextView
+            android:id="@+id/addAWrittenReview"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add a written review"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+
+        //photo upload button
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Upload Photo"/>
+    </LinearLayout>
+
+    //Review box
+    <EditText
+        android:id="@+id/reviewEditText"
+        android:layout_below="@id/writeAReviewAndPhotoLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval"/>
+
+    //post review button
+    <Button
+        android:id="@+id/postButton"
+        android:layout_below="@id/reviewEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Post"/>
+
+</RelativeLayout>
