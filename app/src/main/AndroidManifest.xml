@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jbu3.campussubleasefinder">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,20 +10,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OtherProfileActivity"></activity>
-        <activity
-            android:name=".PostSubleaseActivity"
-            android:label="Post Sublease"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ProfileActivity"
-            android:label="Profile"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".SubleaseActivity"
-            android:label="View Sublease"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.OtherProfileActivity"/>
+        <activity android:name=".SubleasorReview"/>
+        <activity android:name=".WritingSubleasorReview" />
+        <activity android:name=".WritingSubleaseReview" />
+        <activity android:name=".SubleaseReview" />
+        <activity android:name=".Filter" />
+        <activity android:name=".activities.PostSubleaseActivity"
+                  android:label="Post Sublease"/>
+        <activity android:name=".activities.BuildingActivity"
+                  android:screenOrientation="portrait"
+                  android:label="Building Info"/>
+        <activity android:name=".activities.ProfileActivity"
+                  android:label="Profile"/>
+        <activity android:name=".activities.SubleaseActivity"
+            android:screenOrientation="portrait"
+            android:label="View Sublease"/>
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

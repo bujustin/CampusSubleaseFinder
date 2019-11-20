@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //for filter
+    <dimen name="default_width">20dp</dimen>
+    <dimen name="text_size">30dp</dimen>
+    <dimen name="margin_horizontal">15dp</dimen>
+    <dimen name="margin_vertical">15dp</dimen>
+
+    //sublease review
+    <dimen name="sublease_margin_vertical">5dp</dimen>
+</resources>

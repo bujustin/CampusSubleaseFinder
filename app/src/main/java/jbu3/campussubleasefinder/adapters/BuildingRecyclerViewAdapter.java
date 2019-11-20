@@ -1,6 +1,8 @@
-package jbu3.campussubleasefinder;
+package jbu3.campussubleasefinder.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +12,21 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
+import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.models.Building;
+
 public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRecyclerViewAdapter.ViewHolder> {
 
+    private Context mContext;
     private List<Building> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    BuildingRecyclerViewAdapter(Context context, List<Building> data) {
+    public BuildingRecyclerViewAdapter(Context context, List<Building> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.mContext = context;
     }
 
     // inflates the row layout from xml when needed
@@ -32,7 +39,28 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Building building = mData.get(position);
+        final Building building = mData.get(position);
+        holder.addressText.setText(building.address);
+        holder.numSubleasesText.setText(building.numSubleases + " Subleases");
+        holder.numConnectionsText.setText(building.numConnections + " Connections");
+        holder.ratingText.setText(Double.toString(building.rating));
+//        Picasso.get()
+//                .load(building.imageURL)
+//                .resize(80, 80)
+//                .centerCrop()
+//                .placeholder(R.drawable.ic_home_black_48dp)
+//                .error(R.drawable.ic_home_black_48dp)
+//                .into(holder.buildingImage);
+
+        holder.mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri gmmIntentUri = Uri.parse("geo:40.1164,-88.2434?q="+building.address);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                mContext.startActivity(mapIntent);
+            }
+        });
     }
 
     // total number of rows
@@ -43,7 +71,8 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        View cardView;
         ImageView buildingImage;
         TextView addressText;
         TextView numSubleasesText;
@@ -53,18 +82,19 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
 
         ViewHolder(View itemView) {
             super(itemView);
+            cardView = itemView.findViewById(R.id.building_row_card_view);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+                }
+            });
             buildingImage = itemView.findViewById(R.id.building_row_image);
             addressText = itemView.findViewById(R.id.building_row_address_text);
             numSubleasesText = itemView.findViewById(R.id.building_row_num_subleases_text);
             numConnectionsText = itemView.findViewById(R.id.building_row_num_connections_text);
             ratingText = itemView.findViewById(R.id.building_row_rating_text);
             mapButton = itemView.findViewById(R.id.building_row_map_button);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
 
@@ -74,7 +104,7 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
