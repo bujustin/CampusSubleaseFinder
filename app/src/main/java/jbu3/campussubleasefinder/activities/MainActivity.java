@@ -16,7 +16,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.adapters.BuildingRecyclerViewAdapter;
 import jbu3.campussubleasefinder.R;
-import jbu3.campussubleasefinder.models.Building;
 
 public class MainActivity extends AppCompatActivity implements BuildingRecyclerViewAdapter.ItemClickListener {
 

@@ -23,6 +23,7 @@
             android:textSize="25dp" />
 
         <Button
+            android:id="@+id/building_subleases_post_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Post a sublease" />
