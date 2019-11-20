@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import jbu3.campussubleasefinder.R;
@@ -18,6 +19,15 @@ public class SubleaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sublease);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Button reviewButton = findViewById(R.id.sublease_review_button);
+        reviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent writeReviewIntent = new Intent(getApplicationContext(), WriteReviewActivity.class);
+                startActivity(writeReviewIntent);
+            }
+        });
 
         ImageView profileButton = findViewById(R.id.sublease_profile_button);
         profileButton.setOnClickListener(new View.OnClickListener() {
