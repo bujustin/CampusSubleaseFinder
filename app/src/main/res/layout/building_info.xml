@@ -116,55 +116,10 @@
             android:padding="15dp" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/building_info_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginLeft="20dp"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="Jack Doe"
-                    android:textColor="@android:color/black"
-                    android:textSize="21dp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="0dp"
-                    android:numStars="5"
-                    android:stepSize="3.5" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:text="AJDJHGFkjshkjfs sjdfhksdgfjhfsdsdsxzcsvxcvxcvkj"
-                android:textColor="@android:color/black"
-                android:textSize="18dp" />
-
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

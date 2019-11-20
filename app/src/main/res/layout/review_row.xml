@@ -24,13 +24,12 @@
                 android:id="@+id/review"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/writeAReviewButton"
                 android:layout_weight="1"
                 android:gravity="left|center_vertical"
                 android:padding="6dp"
                 android:text="Jane Doe:"
-                android:textSize="25dp"
-                android:textStyle="bold"></TextView>
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <RatingBar
                 android:id="@+id/subleaseRatingBar"

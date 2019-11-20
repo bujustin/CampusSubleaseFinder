@@ -34,7 +34,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.building_list_row, parent, false);
+        View view = mInflater.inflate(R.layout.sublease_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -59,7 +59,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
 
         ViewHolder(View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.building_row_card_view);
+            cardView = itemView.findViewById(R.id.sublease_row_card_view);
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
