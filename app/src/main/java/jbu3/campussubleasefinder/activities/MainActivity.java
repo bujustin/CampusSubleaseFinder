@@ -1,13 +1,10 @@
-package jbu3.campussubleasefinder;
+package jbu3.campussubleasefinder.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,16 +13,12 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
+import jbu3.campussubleasefinder.SampleData;
+import jbu3.campussubleasefinder.adapters.BuildingRecyclerViewAdapter;
+import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.models.Building;
 
 public class MainActivity extends AppCompatActivity implements BuildingRecyclerViewAdapter.ItemClickListener {
-
-    private ArrayList<Building> buildings = new ArrayList<Building>() {{
-        add(new Building("123 Example St.", 4, 2, 4.5, "https://s.realpage.com/wp-content/uploads/sites/20/2016/02/shutterstock_135206831-1-e1565815548959.jpg"));
-        add(new Building("123 Exampfjshkfle St.", 5, 1, 3.5, "https://cdngeneral.rentcafe.com/dmslivecafe/3/632714/exterior-san-antonio-apartments.jpg"));
-    }};
 
     private BuildingRecyclerViewAdapter buildingsAdapter;
     private FloatingActionButton postSubleaseFab;
@@ -40,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
 
         RecyclerView buildingsRecyclerView = findViewById(R.id.main_building_recycler_view);
         buildingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        buildingsAdapter = new BuildingRecyclerViewAdapter(this, buildings);
+        buildingsAdapter = new BuildingRecyclerViewAdapter(this, SampleData.buildings);
         buildingsAdapter.setClickListener(this);
         buildingsRecyclerView.setAdapter(buildingsAdapter);
 
@@ -79,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
     @Override
     public void onItemClick(View view, int position) {
         Intent showBuildingIntent = new Intent(this, BuildingActivity.class);
+        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_IDX, position);
         startActivity(showBuildingIntent);
     }
 }

@@ -1,9 +1,8 @@
-package jbu3.campussubleasefinder;
+package jbu3.campussubleasefinder.adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
+
+import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.models.Building;
 
 public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRecyclerViewAdapter.ViewHolder> {
 
@@ -25,7 +23,7 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    BuildingRecyclerViewAdapter(Context context, List<Building> data) {
+    public BuildingRecyclerViewAdapter(Context context, List<Building> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mContext = context;
@@ -106,7 +104,7 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 

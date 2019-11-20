@@ -10,19 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PostSubleaseActivity"
-                  android:parentActivityName=".MainActivity"
+        <activity android:name=".activities.PostSubleaseActivity"
                   android:label="Post Sublease"/>
-        <activity android:name=".BuildingActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Building Info"/>
-        <activity android:name=".ProfileActivity"
-                  android:parentActivityName=".MainActivity"
+        <activity android:name=".activities.BuildingActivity"
+                  android:screenOrientation="portrait"
+                  android:label="Building Info"/>
+        <activity android:name=".activities.ProfileActivity"
                   android:label="Profile"/>
-        <activity android:name=".SubleaseActivity"
-            android:parentActivityName=".MainActivity"
+        <activity android:name=".activities.SubleaseActivity"
+            android:screenOrientation="portrait"
             android:label="View Sublease"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

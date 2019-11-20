@@ -1,4 +1,4 @@
-package jbu3.campussubleasefinder;
+package jbu3.campussubleasefinder.fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import jbu3.campussubleasefinder.SampleData;
+import jbu3.campussubleasefinder.activities.BuildingActivity;
+import jbu3.campussubleasefinder.models.Building;
+import jbu3.campussubleasefinder.R;
 
 
 public class BuildingInfoFragment extends Fragment {
-    private static final String ARG_BUILDING = "building";
-
     private Building building;
 
     private OnFragmentInteractionListener mListener;
@@ -23,10 +25,10 @@ public class BuildingInfoFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static BuildingInfoFragment newInstance(Building building) {
+    public static BuildingInfoFragment newInstance(int buildingIdx) {
         BuildingInfoFragment fragment = new BuildingInfoFragment();
         Bundle args = new Bundle();
-//        args.putParcelable(ARG_BUILDING, building);
+        args.putInt(BuildingActivity.ARG_BUILDING_IDX, buildingIdx);
         fragment.setArguments(args);
         return fragment;
     }
@@ -35,7 +37,7 @@ public class BuildingInfoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-//            building = getArguments().getParcelable(ARG_BUILDING);
+            building = SampleData.buildings.get(getArguments().getInt(BuildingActivity.ARG_BUILDING_IDX));
         }
     }
 
