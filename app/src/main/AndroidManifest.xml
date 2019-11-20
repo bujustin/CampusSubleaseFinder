@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jbu3.campussubleasefinder">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,9 @@
         <activity android:name=".PostSubleaseActivity"
                   android:parentActivityName=".MainActivity"
                   android:label="Post Sublease"/>
+        <activity android:name=".BuildingActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Building Info"/>
         <activity android:name=".ProfileActivity"
                   android:parentActivityName=".MainActivity"
                   android:label="Profile"/>

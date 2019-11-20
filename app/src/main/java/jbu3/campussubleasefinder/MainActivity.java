@@ -23,7 +23,8 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity implements BuildingRecyclerViewAdapter.ItemClickListener {
 
     private ArrayList<Building> buildings = new ArrayList<Building>() {{
-        add(new Building("123 Example St.", 4, 2, 4.5));
+        add(new Building("123 Example St.", 4, 2, 4.5, "https://s.realpage.com/wp-content/uploads/sites/20/2016/02/shutterstock_135206831-1-e1565815548959.jpg"));
+        add(new Building("123 Exampfjshkfle St.", 5, 1, 3.5, "https://cdngeneral.rentcafe.com/dmslivecafe/3/632714/exterior-san-antonio-apartments.jpg"));
     }};
 
     private BuildingRecyclerViewAdapter buildingsAdapter;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
 
     @Override
     public void onItemClick(View view, int position) {
-
+        Intent showBuildingIntent = new Intent(this, BuildingActivity.class);
+        startActivity(showBuildingIntent);
     }
 }
