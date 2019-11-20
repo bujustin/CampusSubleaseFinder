@@ -31,6 +31,8 @@ public class OtherProfileActivity extends AppCompatActivity implements Connectio
 
     @Override
     public void onItemClick(View view, int position) {
-        // start user intent
+//        Intent showBuildingIntent = new Intent(this, BuildingActivity.class);
+//        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_IDX, position);
+//        startActivity(showBuildingIntent);
     }
 }
