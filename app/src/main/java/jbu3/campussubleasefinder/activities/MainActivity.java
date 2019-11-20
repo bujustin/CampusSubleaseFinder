@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
                 startActivity(showProfileIntent);
                 return true;
             case R.id.filters:
+                Intent showFiltersIntent = new Intent(this, FilterActivity.class);
+                startActivity(showFiltersIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
