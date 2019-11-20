@@ -3,6 +3,7 @@ package jbu3.campussubleasefinder;
 import java.util.ArrayList;
 
 import jbu3.campussubleasefinder.models.Building;
+import jbu3.campussubleasefinder.models.Review;
 import jbu3.campussubleasefinder.models.Sublease;
 import jbu3.campussubleasefinder.models.User;
 
@@ -18,5 +19,11 @@ public class SampleData {
 
     public static ArrayList<User> users = new ArrayList<User>() {{
         add(new User("Jane Doe", 3, 4.5));
+        add(new User("John Doe", 5, 3.5));
+    }};
+
+    public static ArrayList<Review> reviews = new ArrayList<Review>() {{
+        add(new Review(0, 0, 4.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
+        add(new Review(1, 1, 2.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
     }};
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import jbu3.campussubleasefinder.R;
 
@@ -25,6 +26,15 @@ public class SubleaseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent writeReviewIntent = new Intent(getApplicationContext(), WriteReviewActivity.class);
                 startActivity(writeReviewIntent);
+            }
+        });
+
+        ImageView profileButton = findViewById(R.id.sublease_profile_button);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showProfileIntent = new Intent(getApplicationContext(), OtherProfileActivity.class);
+                startActivity(showProfileIntent);
             }
         });
     }
