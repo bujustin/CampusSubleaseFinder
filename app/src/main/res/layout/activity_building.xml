@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_margin="10dp"
-            android:text="403 W Clark St"
+            android:text="403 W Example St"
             android:textColor="@android:color/white"
             android:textSize="30dp"
             android:textStyle="bold"

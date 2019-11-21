@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.OtherProfileActivity"/>
+        <activity android:name=".activities.OtherProfileActivity"
+            android:label="Profile"/>
         <activity android:name=".activities.WriteReviewActivity"
             android:label="Write Review"/>
         <activity android:name=".activities.FilterActivity"
@@ -24,7 +25,7 @@
                   android:label="Profile"/>
         <activity android:name=".activities.SubleaseActivity"
             android:screenOrientation="portrait"
-            android:label="View Sublease"/>
+            android:label="Sublease"/>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

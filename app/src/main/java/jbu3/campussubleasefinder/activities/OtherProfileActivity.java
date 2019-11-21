@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import jbu3.campussubleasefinder.R;
@@ -23,6 +24,8 @@ public class OtherProfileActivity extends AppCompatActivity implements Connectio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_profile);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView subleaseRecyclerView = findViewById(R.id.profile_subleases_recycler_view);
         LinearLayoutManager subleaseLayoutManager
@@ -47,6 +50,18 @@ public class OtherProfileActivity extends AppCompatActivity implements Connectio
         connectionsAdapter = new ConnectionRecyclerViewAdapter(this, SampleData.users);
         connectionsAdapter.setClickListener(this);
         connectionsRecyclerView.setAdapter(connectionsAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

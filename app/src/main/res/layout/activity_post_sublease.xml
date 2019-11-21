@@ -1,11 +1,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/LL0"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -30,8 +30,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg. 1234 Example St"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -56,8 +56,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg. $400"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -82,8 +82,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg.2"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -108,8 +108,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg. 2"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -134,8 +134,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg. 2/14"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -160,8 +160,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
                 android:hint="Eg. 7/14"
+                android:inputType="text"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -209,8 +209,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
                     android:hint="Eg. $80"
+                    android:inputType="text"
                     android:textSize="12sp" />
 
             </LinearLayout>

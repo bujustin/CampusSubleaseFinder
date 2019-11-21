@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.activities.BuildingActivity;
+import jbu3.campussubleasefinder.activities.PostSubleaseActivity;
 import jbu3.campussubleasefinder.activities.SubleaseActivity;
 import jbu3.campussubleasefinder.adapters.SubleaseRecyclerViewAdapter;
 import jbu3.campussubleasefinder.models.Building;
@@ -74,6 +76,15 @@ public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyc
         subleaseAdapter = new SubleaseRecyclerViewAdapter(getContext(), buildingSubleases);
         subleaseAdapter.setClickListener(this);
         subleaseRecyclerView.setAdapter(subleaseAdapter);
+
+        Button postSubleaseButton = view.findViewById(R.id.building_subleases_post_button);
+        postSubleaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent showPostSubleaseIntent = new Intent(getContext(), PostSubleaseActivity.class);
+                startActivity(showPostSubleaseIntent);
+            }
+        });
         return view;
     }
 
