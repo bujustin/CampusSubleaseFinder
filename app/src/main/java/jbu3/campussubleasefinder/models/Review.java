@@ -1,14 +1,14 @@
 package jbu3.campussubleasefinder.models;
 
 public class Review {
-    public int userIdx;
-    public int buildingIdx;
+    public int userID;
+    public int buildingID;
     public double rating;
     public String text;
 
-    public Review(int userIdx, int buildingIdx, double rating, String text) {
-        this.userIdx = userIdx;
-        this.buildingIdx = buildingIdx;
+    public Review(int userID, int buildingID, double rating, String text) {
+        this.userID = userID;
+        this.buildingID = buildingID;
         this.rating = rating;
         this.text = text;
     }

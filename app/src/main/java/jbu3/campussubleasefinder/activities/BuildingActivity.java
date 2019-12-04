@@ -29,9 +29,8 @@ import jbu3.campussubleasefinder.models.Sublease;
 import static jbu3.campussubleasefinder.SampleData.buildings;
 
 public class BuildingActivity extends AppCompatActivity implements BuildingInfoFragment.OnFragmentInteractionListener, BuildingSubleasesFragment.OnFragmentInteractionListener {
-    public static final String ARG_BUILDING_IDX = "buildingIdx";
+    public static final String ARG_BUILDING_ID = "buildingID";
 
-    private int buildingIdx;
     private Building building;
 
     private TextView addressText;
@@ -47,14 +46,14 @@ public class BuildingActivity extends AppCompatActivity implements BuildingInfoF
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        buildingIdx = getIntent().getIntExtra(ARG_BUILDING_IDX, 0);
-        building = SampleData.buildings.get(buildingIdx);
+        int buildingID = getIntent().getIntExtra(ARG_BUILDING_ID, 0);
+        building = SampleData.findBuildingByID(buildingID);
 
         addressText = findViewById(R.id.building_address);
         bottomNav = findViewById(R.id.building_bottom_nav);
 
-        buildingInfo = BuildingInfoFragment.newInstance(buildingIdx);
-        buildingSubleases = BuildingSubleasesFragment.newInstance(buildingIdx);
+        buildingInfo = BuildingInfoFragment.newInstance(buildingID);
+        buildingSubleases = BuildingSubleasesFragment.newInstance(buildingID);
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.add(R.id.building_frame, buildingInfo);
