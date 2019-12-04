@@ -33,7 +33,8 @@ public class SubleaseActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent showProfileIntent = new Intent(getApplicationContext(), OtherProfileActivity.class);
+                Intent showProfileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                showProfileIntent.putExtra("PROFILE_CAN_EDIT", false);
                 startActivity(showProfileIntent);
             }
         });
