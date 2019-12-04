@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import jbu3.campussubleasefinder.R;
 import jbu3.campussubleasefinder.SampleData;
@@ -50,6 +51,13 @@ public class OtherProfileActivity extends AppCompatActivity implements Connectio
         connectionsAdapter = new ConnectionRecyclerViewAdapter(this, SampleData.users);
         connectionsAdapter.setClickListener(this);
         connectionsRecyclerView.setAdapter(connectionsAdapter);
+
+        TextView sublessor_name= findViewById(R.id.sublessor_name);
+        TextView sublessor_phone_number= findViewById(R.id.sublessor_phone_number);
+        TextView sublessor_email= findViewById(R.id.sublessor_email);
+        TextView sublessor_about= findViewById(R.id.sublessor_about);
+
+
     }
 
     @Override

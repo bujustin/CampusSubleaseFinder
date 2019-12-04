@@ -66,6 +66,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/sublessor_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -87,6 +88,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/sublessor_phone_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -107,6 +109,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/sublessor_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -127,10 +130,11 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/sublessor_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="I'm a Senior in college looking for a sublease for the spring 2020 semsester"
+                    android:text="I'm a Senior in college looking for a sublease for the spring 2020 semester"
                     android:textSize="18sp" />
             </LinearLayout>
 
