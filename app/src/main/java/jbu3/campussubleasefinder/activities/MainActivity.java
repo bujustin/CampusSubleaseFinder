@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
         switch (item.getItemId()) {
             case android.R.id.home:
                 Intent showProfileIntent = new Intent(this, ProfileActivity.class);
+                showProfileIntent.putExtra("PROFILE_CAN_EDIT", true);
                 startActivity(showProfileIntent);
                 return true;
             case R.id.filters:
