@@ -10,6 +10,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import jbu3.campussubleasefinder.R;
@@ -44,13 +47,14 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
         holder.numSubleasesText.setText(building.numSubleases + " Subleases");
         holder.numConnectionsText.setText(building.numConnections + " Connections");
         holder.ratingText.setText(Double.toString(building.rating));
-//        Picasso.get()
-//                .load(building.imageURL)
-//                .resize(80, 80)
-//                .centerCrop()
-//                .placeholder(R.drawable.ic_home_black_48dp)
-//                .error(R.drawable.ic_home_black_48dp)
-//                .into(holder.buildingImage);
+
+        Picasso.get()
+                .load(building.imageURL)
+                .resize(80, 80)
+                .centerCrop()
+                .placeholder(R.drawable.ic_add_black_36dp)
+                .error(R.drawable.ic_arrow_back_black_24dp)
+                .into(holder.buildingImage);
 
         holder.mapButton.setOnClickListener(new View.OnClickListener() {
             @Override

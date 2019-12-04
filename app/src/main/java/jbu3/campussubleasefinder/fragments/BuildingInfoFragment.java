@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.activities.BuildingActivity;
@@ -21,10 +22,10 @@ import jbu3.campussubleasefinder.adapters.SubleaseRecyclerViewAdapter;
 import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.R;
 import jbu3.campussubleasefinder.models.Review;
+import jbu3.campussubleasefinder.models.Sublease;
 
 
 public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerViewAdapter.ItemClickListener {
-    private int buildingIdx;
     private Building building;
     private ArrayList<Integer> buildingReviewInds = new ArrayList<>();
     private ArrayList<Review> buildingReviews = new ArrayList<>();
@@ -33,6 +34,11 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
 
     private OnFragmentInteractionListener mListener;
 
+    private String priceRange = "";
+    private int numSubleases = 0;
+    private String numMonthsRange = "";
+    private boolean petsAllowed = false;
+
     public BuildingInfoFragment() {
         // Required empty public constructor
     }
@@ -40,7 +46,7 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
     public static BuildingInfoFragment newInstance(int buildingIdx) {
         BuildingInfoFragment fragment = new BuildingInfoFragment();
         Bundle args = new Bundle();
-        args.putInt(BuildingActivity.ARG_BUILDING_IDX, buildingIdx);
+        args.putInt(BuildingActivity.ARG_BUILDING_ID, buildingIdx);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,17 +55,8 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            buildingIdx = getArguments().getInt(BuildingActivity.ARG_BUILDING_IDX);
-            building = SampleData.buildings.get(buildingIdx);
-
-            buildingReviewInds.clear();
-            buildingReviews.clear();
-            for (int i = 0; i < SampleData.reviews.size(); ++i) {
-                if (SampleData.reviews.get(i).buildingIdx == buildingIdx) {
-                    buildingReviewInds.add(i);
-                    buildingReviews.add(SampleData.reviews.get(i));
-                }
-            }
+            int buildingID = getArguments().getInt(BuildingActivity.ARG_BUILDING_ID);
+            building = SampleData.findBuildingByID(buildingID);
         }
     }
 

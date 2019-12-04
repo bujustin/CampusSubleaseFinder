@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SampleData.filteredBuildings = SampleData.buildings;
+
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_account_circle_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
     @Override
     public void onItemClick(View view, int position) {
         Intent showBuildingIntent = new Intent(this, BuildingActivity.class);
-        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_IDX, position);
+        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_ID, position);
         startActivity(showBuildingIntent);
     }
 }
