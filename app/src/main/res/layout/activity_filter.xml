@@ -11,6 +11,48 @@
         tools:context=".activities.FilterActivity">
 
         <LinearLayout
+            android:id="@+id/endDateLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal"
+            android:layout_marginVertical="@dimen/margin_vertical">
+
+            <TextView
+                android:id="@+id/endDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Date:"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/endDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/startDateLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal"
+            android:layout_marginVertical="@dimen/margin_vertical">
+
+            <TextView
+                android:id="@+id/startDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Date:"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/startEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/bedAndBathLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,20 +93,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:layout_marginVertical="@dimen/margin_vertical">
+            android:layout_marginVertical="@dimen/margin_vertical"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/propertyRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Property Rating:"
+                android:layout_marginRight="20dp"
+                android:text="Rating:"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/propertyRatingEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:max="5"
+                android:progress="3" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -85,28 +133,8 @@
             <EditText
                 android:id="@+id/pricePerMonthEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/aptScoreLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:layout_marginVertical="@dimen/margin_vertical">
-
-            <TextView
-                android:id="@+id/aptScoreText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apt Score:"
-                android:textSize="@dimen/text_size"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/aptScoreEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,14 +148,17 @@
                 android:id="@+id/parkingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
                 android:text="Parking:"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/parkingEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -141,56 +172,17 @@
                 android:id="@+id/petText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pet:"
+                android:layout_marginRight="20dp"
+                android:text="Pet Friendly:"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/petEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/startDateLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:layout_marginVertical="@dimen/margin_vertical">
-
-            <TextView
-                android:id="@+id/startDateText"
+            <Switch
+                android:id="@+id/switch4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start Date:"
-                android:textSize="@dimen/text_size"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/startEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/endDateLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:layout_marginVertical="@dimen/margin_vertical">
-
-            <TextView
-                android:id="@+id/endDateText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="End Date:"
-                android:textSize="@dimen/text_size"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/endDateEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
