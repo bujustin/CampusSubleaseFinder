@@ -29,6 +29,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/filter_"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
