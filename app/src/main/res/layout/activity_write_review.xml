@@ -71,25 +71,54 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload Photo" />
+
     </LinearLayout>
 
     <EditText
         android:id="@+id/reviewEditText"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
         android:layout_margin="20dp"
+        android:layout_weight="1"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval"
         android:gravity="top|left" />
 
-    <Button
-        android:id="@+id/postButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Post" />
+        android:gravity="center_horizontal|bottom">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/ImageToUpload"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_home_black_48dp"
+                android:background="@android:color/darker_gray"/>
+
+            <Button
+                android:id="@+id/bUploadImage"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Upload Photo" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/postButton"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="60dp"
+            android:text="Post" />
+    </LinearLayout>
+
 </LinearLayout>
