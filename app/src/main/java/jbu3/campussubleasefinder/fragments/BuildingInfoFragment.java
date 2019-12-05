@@ -27,8 +27,6 @@ import jbu3.campussubleasefinder.models.Sublease;
 
 public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerViewAdapter.ItemClickListener {
     private Building building;
-    private ArrayList<Integer> buildingReviewInds = new ArrayList<>();
-    private ArrayList<Review> buildingReviews = new ArrayList<>();
 
     private ReviewsRecyclerViewAdapter reviewsAdapter;
 
@@ -66,7 +64,7 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         View view = inflater.inflate(R.layout.building_info, container, false);
         RecyclerView reviewsRecyclerView = view.findViewById(R.id.building_info_reviews_recycler_view);
         reviewsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        reviewsAdapter = new ReviewsRecyclerViewAdapter(getContext(), buildingReviews);
+        reviewsAdapter = new ReviewsRecyclerViewAdapter(getContext(), building.reviews);
         reviewsAdapter.setClickListener(this);
         reviewsRecyclerView.setAdapter(reviewsAdapter);
         return view;

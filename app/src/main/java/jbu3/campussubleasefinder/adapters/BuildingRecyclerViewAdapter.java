@@ -52,8 +52,8 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
                 .load(building.imageURL)
                 .resize(80, 80)
                 .centerCrop()
-                .placeholder(R.drawable.ic_add_black_36dp)
-                .error(R.drawable.ic_arrow_back_black_24dp)
+                .placeholder(R.drawable.ic_home_black_48dp)
+                .error(R.drawable.ic_home_black_48dp)
                 .into(holder.buildingImage);
 
         holder.mapButton.setOnClickListener(new View.OnClickListener() {

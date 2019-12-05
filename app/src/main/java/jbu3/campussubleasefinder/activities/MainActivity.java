@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SampleData.filteredBuildings = SampleData.buildings;
+        SampleData.setFilteredBuildings("", null, null, -1, -1, 0, false, false);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_account_circle_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView buildingsRecyclerView = findViewById(R.id.main_building_recycler_view);
         buildingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        buildingsAdapter = new BuildingRecyclerViewAdapter(this, SampleData.buildings);
+        buildingsAdapter = new BuildingRecyclerViewAdapter(this, SampleData.filteredBuildings);
         buildingsAdapter.setClickListener(this);
         buildingsRecyclerView.setAdapter(buildingsAdapter);
 

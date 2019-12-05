@@ -27,10 +27,7 @@ import jbu3.campussubleasefinder.models.Sublease;
 
 
 public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyclerViewAdapter.ItemClickListener {
-    private int buildingIdx;
     private Building building;
-    private ArrayList<Integer> buildingSubleaseInds = new ArrayList<>();
-    private ArrayList<Sublease> buildingSubleases = new ArrayList<>();
 
     private SubleaseRecyclerViewAdapter subleaseAdapter;
 
@@ -43,7 +40,7 @@ public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyc
     public static BuildingSubleasesFragment newInstance(int buildingIdx) {
         BuildingSubleasesFragment fragment = new BuildingSubleasesFragment();
         Bundle args = new Bundle();
-        args.putInt(BuildingActivity.ARG_BUILDING_IDX, buildingIdx);
+        args.putInt(BuildingActivity.ARG_BUILDING_ID, buildingIdx);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,27 +50,17 @@ public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyc
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            buildingIdx = getArguments().getInt(BuildingActivity.ARG_BUILDING_IDX);
-            building = SampleData.buildings.get(buildingIdx);
-
-            buildingSubleaseInds.clear();
-            buildingSubleases.clear();
-            for (int i = 0; i < SampleData.subleases.size(); ++i) {
-                if (SampleData.subleases.get(i).buildingIdx == buildingIdx) {
-                    buildingSubleaseInds.add(i);
-                    buildingSubleases.add(SampleData.subleases.get(i));
-                }
-            }
+            int buildingID = getArguments().getInt(BuildingActivity.ARG_BUILDING_ID);
+            building = SampleData.findBuildingByID(buildingID);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.building_subleases, container, false);
         RecyclerView subleaseRecyclerView = view.findViewById(R.id.building_subleases_recycler_view);
         subleaseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        subleaseAdapter = new SubleaseRecyclerViewAdapter(getContext(), buildingSubleases);
+        subleaseAdapter = new SubleaseRecyclerViewAdapter(getContext(), building.subleases);
         subleaseAdapter.setClickListener(this);
         subleaseRecyclerView.setAdapter(subleaseAdapter);
 
