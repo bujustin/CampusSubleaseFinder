@@ -14,6 +14,7 @@ public class SampleData {
     public static ArrayList<Building> filteredBuildings = new ArrayList<>();
 
     public static void setFilteredBuildings(String address, Date startDate, Date endDate, int bed, int bath, int rating, boolean parking, boolean pets) {
+        filteredBuildings.clear();
         for (Building building: buildings) {
             if ((address == "" || building.address == address) && building.rating >= rating && (!parking || building.parking) && (!pets || building.pets)) {
                 building.subleases.clear();
@@ -22,7 +23,7 @@ public class SampleData {
                 int maxPrice = 0;
                 int minPrice = 100000000;
                 for (Sublease sublease : subleases) {
-                    if (sublease.buildingID == building.id && (bed > 0 && sublease.numBeds == bed) && (bath > 0 && sublease.numBaths == bath)) {
+                    if (sublease.buildingID == building.id && (bed < 0 || sublease.numBeds == bed) && (bath < 0 || sublease.numBaths == bath)) {
                         SimpleDateFormat format = new SimpleDateFormat("mm/dd/yyyy");
                         try {
                             Date subStartDate = format.parse(sublease.startDate);
