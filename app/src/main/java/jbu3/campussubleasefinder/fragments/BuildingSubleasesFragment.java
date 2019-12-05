@@ -102,6 +102,7 @@ public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyc
     @Override
     public void onItemClick(View view, int position) {
         Intent showSubleaseIntent = new Intent(getActivity(), SubleaseActivity.class);
+        showSubleaseIntent.putExtra(SubleaseActivity.ARG_SUBLEASE_ID, building.subleases.get(position).buildingID);
         startActivity(showSubleaseIntent);
     }
 

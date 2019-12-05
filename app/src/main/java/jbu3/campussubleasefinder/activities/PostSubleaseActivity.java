@@ -33,6 +33,7 @@ public class PostSubleaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_sublease);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
        selectDate1 = findViewById(R.id.btnDate1);
        date1 = findViewById(R.id.tvSelectedDate1);

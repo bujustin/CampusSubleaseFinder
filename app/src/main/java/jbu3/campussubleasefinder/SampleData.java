@@ -24,7 +24,7 @@ public class SampleData {
                 int minPrice = 100000000;
                 for (Sublease sublease : subleases) {
                     if (sublease.buildingID == building.id && (bed < 0 || sublease.numBeds == bed) && (bath < 0 || sublease.numBaths == bath)) {
-                        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yyyy");
+                        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yy");
                         try {
                             Date subStartDate = format.parse(sublease.startDate);
                             Date subEndDate = format.parse(sublease.endDate);
@@ -74,13 +74,33 @@ public class SampleData {
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
-        add(new Sublease(0, 0, 430, "1/20/2020","6/11/2020", 3, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
+        add(new Sublease(0,0, 0, 430, "1/20/20","6/11/20", 3, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
     }};
+
+    public static Sublease findSubleaseByID(int id) {
+        for (Sublease sublease: subleases) {
+            if (sublease.id == id) {
+                return sublease;
+            }
+        }
+
+        return null;
+    }
 
     public static ArrayList<User> users = new ArrayList<User>() {{
         add(new User(0,"Jane Doe", 3, 4.5));
         add(new User(1,"John Doe", 5, 3.5));
     }};
+
+    public static User findUserByID(int id) {
+        for (User user: users) {
+            if (user.id == id) {
+                return user;
+            }
+        }
+
+        return null;
+    }
 
     public static ArrayList<Review> reviews = new ArrayList<Review>() {{
         add(new Review(0, 0, 4.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));

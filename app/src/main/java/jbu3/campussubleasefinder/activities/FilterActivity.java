@@ -31,6 +31,8 @@ public class FilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         selectDate1 = findViewById(R.id.btnDate1);
         date1 = findViewById(R.id.tvSelectedDate1);
 

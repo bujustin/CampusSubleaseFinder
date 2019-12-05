@@ -351,9 +351,6 @@
                 android:background="@drawable/button_border"
                 android:text="UPLOAD PHOTOS" />
 
-
-
-
         </LinearLayout>
 
         <Button
