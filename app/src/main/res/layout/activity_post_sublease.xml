@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,12 +25,13 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:text="Address:"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
                 android:hint="Eg. 1234 Example St"
                 android:inputType="text"
                 android:textSize="12sp" />
@@ -42,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -50,12 +53,13 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:text="Price/Month:"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:hint="Eg. $400"
                 android:inputType="text"
                 android:textSize="12sp" />
@@ -68,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -76,15 +81,40 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:text="# Bedrooms:"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Eg.2"
-                android:inputType="text"
-                android:textSize="12sp" />
+                android:layout_marginLeft="13dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    />
+            </RadioGroup>
 
         </LinearLayout>
 
@@ -94,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -102,15 +133,40 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:text="# Bathrooms:"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Eg. 2"
-                android:inputType="text"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9.25dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    />
+            </RadioGroup>
 
         </LinearLayout>
 
@@ -120,23 +176,38 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
+            <Button
+                android:id="@+id/btnDate"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:paddingTop="10dp"
-                android:text="Start Date:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary"
+                android:padding="10dp"
+                android:text="START DATE"
+                android:textColor="@android:color/white" />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Eg. 2/14"
-                android:inputType="text"
-                android:textSize="12sp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/tvSelectedDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnDate"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:hint="Select a start date"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -146,23 +217,38 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:paddingTop="10dp"
-                android:text="End Date:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnDate1"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary"
+                android:padding="10dp"
+                android:text="END DATE"
+                android:textColor="@android:color/white" />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Eg. 7/14"
-                android:inputType="text"
-                android:textSize="12sp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/tvSelectedDate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnDate1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:hint="Select a end date"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -172,6 +258,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -180,49 +267,27 @@
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
                 android:text="Parking:"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Switch
                 android:id="@+id/switch1"
+                android:layout_marginLeft="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="30dp"
                 android:checked="false"
                 android:showText="false" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingTop="10dp"
-                    android:text="Price:"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Eg. $80"
-                    android:inputType="text"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
-        <!--Pets-->
+
+        <!--Parking Price-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -230,83 +295,79 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
                 android:paddingTop="10dp"
-                android:text="Pet Friendly:"
-                android:textSize="14sp"
+                android:text="Parking Price:"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Switch
-                android:id="@+id/switch2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_marginLeft="11dp"
+                android:layout_height="match_parent"
+                android:hint="Eg. $80"
+                android:inputType="text"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
+        <!--Pets-->
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:paddingTop="10dp"
+            android:text="Pet Friendly:"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+        <!--Photos-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@drawable/button_border"
+                android:text="UPLOAD PHOTOS" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingTop="10dp"
-                    android:text="Building Photos:"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/ic_crop_original_black_24dp" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:text="Apartment Photos:"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/ic_crop_original_black_24dp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload" />
-            </LinearLayout>
         </LinearLayout>
 
         <Button
             android:id="@+id/post_sublease_post_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Post" />
+            android:layout_width="144dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="30dp"
+            android:textSize="25sp"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFFFF"
+            android:backgroundTintMode="add"
+            android:text="POST" />
+
+
 
     </LinearLayout>
 </ScrollView>
