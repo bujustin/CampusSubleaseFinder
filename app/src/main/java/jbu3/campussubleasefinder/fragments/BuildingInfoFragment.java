@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
@@ -69,6 +70,10 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         reviewsAdapter = new ReviewsRecyclerViewAdapter(getContext(), buildingReviews);
         reviewsAdapter.setClickListener(this);
         reviewsRecyclerView.setAdapter(reviewsAdapter);
+
+        TextView price = view.findViewById(R.id.building_info_price_text);
+//        price.setText();
+
         return view;
     }
 
