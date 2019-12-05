@@ -75,7 +75,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@android:color/darker_gray"
+                        android:tint="@color/colorAccent"
                         app:srcCompat="@drawable/ic_star_black_24dp" />
 
                     <TextView
@@ -94,7 +94,7 @@
                 android:layout_height="30dp"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:scaleType="fitCenter"
-                android:tint="@android:color/darker_gray"
+                android:tint="@android:color/holo_blue_light"
                 app:srcCompat="@drawable/ic_map_black_36dp" />
 
         </LinearLayout>

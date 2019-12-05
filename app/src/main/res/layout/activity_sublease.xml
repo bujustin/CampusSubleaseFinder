@@ -337,6 +337,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#FFFFFFFF"
                     android:text="Profile"/>
 
                 <Button
@@ -344,6 +346,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#FFFFFFFF"
                     android:text="Leave a Review"/>
 
             </LinearLayout>

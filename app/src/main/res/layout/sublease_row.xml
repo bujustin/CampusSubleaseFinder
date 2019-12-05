@@ -30,7 +30,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:text="Jane Doe"
-                android:textSize="21dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -70,7 +70,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="AJDJHGFkjshkjfs sjdfhksdfxfdsfs dgfjdsdsxzcsvxcvxcvkj"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"

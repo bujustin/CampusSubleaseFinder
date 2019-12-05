@@ -74,7 +74,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload Photo" />
+            android:text="Upload Photo"
+            android:textColor="#FFFFFFFF"
+            android:background="@color/colorPrimary"/>
     </LinearLayout>
 
     <EditText
@@ -91,5 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFFFF"
+        android:background="@color/colorPrimary"
         android:text="Post" />
 </LinearLayout>
