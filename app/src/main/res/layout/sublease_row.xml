@@ -69,32 +69,76 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="AJDJHGFkjshkjfs sjdfhksdfxfdsfs dgfjdsdsxzcsvxcvxcvkj"
+            android:text="Abhvhvhvvhjjfs sjdfhksdfxfdsfs dgfjdsdsxzcsvxcvxcvkj"
             android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="$430/month"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_attach_money_gray_24dp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Price: $" />
+
+            <TextView
+                android:id="@+id/sublease_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="420" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_date_range_gray_24dp" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Start: 1/11" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="Start: 1/11 " />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_date_range_gray_24dp" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="End: 5/11" />
         </LinearLayout>
+    </LinearLayout>
 
 
     </LinearLayout>
