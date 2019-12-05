@@ -64,14 +64,6 @@ public class BuildingSubleasesFragment extends Fragment implements SubleaseRecyc
         subleaseAdapter.setClickListener(this);
         subleaseRecyclerView.setAdapter(subleaseAdapter);
 
-        Button postSubleaseButton = view.findViewById(R.id.building_subleases_post_button);
-        postSubleaseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent showPostSubleaseIntent = new Intent(getContext(), PostSubleaseActivity.class);
-                startActivity(showPostSubleaseIntent);
-            }
-        });
         return view;
     }
 

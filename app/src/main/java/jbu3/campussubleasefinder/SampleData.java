@@ -104,7 +104,7 @@ public class SampleData {
 
     public static Integer findConnections(int user1Id, int user2Id) {
         HashSet<Integer> set = new HashSet<>();
-        
+
         set.addAll(Arrays.asList(findUserByID(user1Id, false).connectionIDs));
         set.retainAll(Arrays.asList(findUserByID(user2Id, false).connectionIDs));
         return set.size();
