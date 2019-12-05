@@ -88,13 +88,36 @@ public class SampleData {
     }
 
     public static ArrayList<User> users = new ArrayList<User>() {{
-        add(new User(0,"Jane Doe", 3, 4.5));
-        add(new User(1,"John Doe", 5, 3.5));
+        add(new User(0,"Jane Doe", "janed6@illinois.edu", "(324) 325-3463", "I have a cat", new int[]{1}));
+        add(new User(1,"John Doe", "jognd18@illinois.edu",  "(645) 824-3857", "I am pretty cool", new int[]{0}));
     }};
 
-    public static User findUserByID(int id) {
+    public static User findUserByID(int id, boolean populate) {
         for (User user: users) {
             if (user.id == id) {
+                if (populate) {
+                    user.reviews.clear();
+                    user.subleases.clear();
+                    user.connections.clear();
+                    for (Sublease sublease : subleases) {
+                        if (sublease.sublessorID == user.id) {
+                            user.subleases.add(sublease);
+                        }
+                    }
+
+                    user.rating = 0;
+                    for (Review review : reviews) {
+                        if (review.userID == user.id) {
+                            user.rating += review.rating;
+                            user.reviews.add(review);
+                        }
+                    }
+                    user.rating /= user.reviews.size();
+
+                    for (int connectionID : user.connectionIDs) {
+                        user.connections.add(findUserByID(connectionID, false));
+                    }
+                }
                 return user;
             }
         }

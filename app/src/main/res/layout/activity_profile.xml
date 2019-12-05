@@ -162,6 +162,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
+                    android:tint="@color/colorAccent"
                     android:src="@drawable/ic_star_gray_24dp" />
 
                 <TextView
@@ -199,6 +200,15 @@
                 android:id="@+id/profile_connections_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/import_contacts_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:background="@color/colorPrimary"
+                android:text="Import Contacts"
+                android:layout_margin="20dp" />
 
         </LinearLayout>
     </ScrollView>
