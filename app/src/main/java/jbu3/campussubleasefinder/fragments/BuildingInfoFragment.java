@@ -70,6 +70,18 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         reviewsRecyclerView.setAdapter(reviewsAdapter);
 
         TextView price = view.findViewById(R.id.building_info_price_text);
+        TextView numSubleases = view.findViewById(R.id.building_info_num_subleases);
+        TextView numBedrooms = view.findViewById(R.id.building_info_num_bedrooms);
+        TextView petsAllowed = view.findViewById(R.id.building_info_pets_allowed);
+
+        price.setText("$" + building.priceRange);
+        numSubleases.setText(building.subleases.size() + " subleases");
+        numBedrooms.setText(building.numBedroomRange + " bedrooms");
+        if (building.pets) {
+            petsAllowed.setText("Pets allowed");
+        } else {
+            petsAllowed.setText("No pets");
+        }
 //        price.setText();
 
         return view;

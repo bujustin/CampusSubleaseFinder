@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Info:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimary"
             android:textSize="25dp" />
 
         <TextView
@@ -24,14 +24,13 @@
             android:layout_weight="1"
             android:gravity="right"
             android:text="$430/month"
-            android:textColor="@android:color/black"
             android:textSize="25dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -41,20 +40,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/building_info_num_subleases"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5 subleases"
-                android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
             <TextView
+                android:id="@+id/building_info_pets_allowed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="3-10 months"
-                android:textColor="@android:color/black"
+                android:text="No pets"
                 android:textSize="20dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -63,20 +62,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/building_info_num_bedrooms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2-4 bedrooms"
-                android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="No pets"
-                android:textColor="@android:color/black"
-                android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -96,11 +87,12 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Reviews"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimary"
             android:textSize="25dp" />
 
         <RatingBar
 
+            android:id="@+id/building_info_average_rating"
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,12 +100,6 @@
             android:numStars="5"
             android:stepSize="4.5" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
-            android:padding="15dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
