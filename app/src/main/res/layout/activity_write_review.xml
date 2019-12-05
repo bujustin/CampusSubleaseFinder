@@ -71,29 +71,26 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload Photo"
-            android:textColor="#FFFFFFFF"
-            android:background="@color/colorPrimary"/>
+
     </LinearLayout>
 
     <EditText
         android:id="@+id/reviewEditText"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
         android:layout_margin="20dp"
+        android:layout_weight="1"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval"
         android:gravity="top|left" />
 
     <Button
         android:id="@+id/postButton"
-        android:layout_width="wrap_content"
+        android:layout_width="101dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textColor="#FFFFFFFF"
+        android:text="Post"
         android:background="@color/colorPrimary"
-        android:text="Post" />
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>
