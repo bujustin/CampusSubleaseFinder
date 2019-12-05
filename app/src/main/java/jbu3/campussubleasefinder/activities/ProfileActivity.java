@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.adapters.ConnectionRecyclerViewAdapter;
 import jbu3.campussubleasefinder.adapters.ReviewsRecyclerViewAdapter;
 import jbu3.campussubleasefinder.adapters.SubleaseRecyclerViewAdapter;
+import jbu3.campussubleasefinder.models.User;
 
 public class ProfileActivity extends AppCompatActivity
         implements ConnectionRecyclerViewAdapter.ItemClickListener,
@@ -31,13 +33,18 @@ public class ProfileActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Boolean editable = getIntent().getExtras().getBoolean("PROFILE_CAN_EDIT");
+        Boolean editable = getIntent().getBooleanExtra("PROFILE_CAN_EDIT", false);
+        int userId = getIntent().getIntExtra("PROFILE_ID", 0);
+        populateText(SampleData.findUserByID(userId));
+
         if (!editable) {
-            // hide password input
+            // hide password input, import contacts
             TextView passwordTextView = findViewById(R.id.profile_password_text_view);
             EditText passwordEditText = findViewById(R.id.profile_password_edit_text);
-            ((ViewGroup) passwordTextView.getParent()).removeView(passwordTextView);
-            ((ViewGroup) passwordEditText.getParent()).removeView(passwordEditText);
+            Button importContactsButton = findViewById(R.id.import_contacts_button);
+            passwordTextView.setVisibility(View.GONE);
+            passwordEditText.setVisibility(View.GONE);
+            importContactsButton.setVisibility(View.GONE);
 
             // set inputs disabled
             EditText aboutEditText = findViewById(R.id.profile_about_edit_text);
@@ -75,6 +82,15 @@ public class ProfileActivity extends AppCompatActivity
         connectionsRecyclerView.setAdapter(connectionsAdapter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void populateText(User user) {
+        ((EditText)findViewById(R.id.profile_about_edit_text)).setText(user.about);
+        ((EditText)findViewById(R.id.profile_name_edit_text)).setText(user.name);
+        ((EditText)findViewById(R.id.profile_email_edit_text)).setText(user.email);
+        ((EditText)findViewById(R.id.profile_phone_edit_text)).setText(user.phone);
+
+
     }
 
     @Override

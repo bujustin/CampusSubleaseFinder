@@ -39,7 +39,7 @@ public class SubleaseActivity extends AppCompatActivity {
             }
         });
 
-        ImageView profileButton = findViewById(R.id.sublease_profile_button);
+        Button profileButton = findViewById(R.id.sublease_profile_button);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
