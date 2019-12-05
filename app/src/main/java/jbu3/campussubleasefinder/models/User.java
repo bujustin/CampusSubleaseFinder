@@ -12,9 +12,9 @@ public class User {
     public ArrayList<Sublease> subleases;
     public ArrayList<Review> reviews;
     public ArrayList<User> connections;
-    public int[] connectionIDs;
+    public Integer[] connectionIDs;
 
-    public User(int id, String name, String email, String phone, String about, int[] connectionIDs) {
+    public User(int id, String name, String email, String phone, String about, Integer[] connectionIDs) {
         this.id = id;
         this.name = name;
         this.email = email;

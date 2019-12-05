@@ -66,6 +66,7 @@ public class BuildingActivity extends AppCompatActivity implements BuildingInfoF
 
         buildingImage = findViewById(R.id.building_header_image);
         addressText = findViewById(R.id.building_address);
+        addressText.setText(building.address);
         bottomNav = findViewById(R.id.building_bottom_nav);
 
         buildingInfo = BuildingInfoFragment.newInstance(buildingID);
