@@ -92,31 +92,32 @@ public class SampleData {
         add(new User(1,"John Doe", "jognd18@illinois.edu",  "(645) 824-3857", "I am pretty cool", new int[]{0}));
     }};
 
-    public static User findUserByID(int id) {
+    public static User findUserByID(int id, boolean populate) {
         for (User user: users) {
             if (user.id == id) {
-                user.reviews.clear();
-                user.subleases.clear();
-                user.connections.clear();
-                for (Sublease sublease: subleases) {
-                    if (sublease.sublessorID == user.id) {
-                        user.subleases.add(sublease);
+                if (populate) {
+                    user.reviews.clear();
+                    user.subleases.clear();
+                    user.connections.clear();
+                    for (Sublease sublease : subleases) {
+                        if (sublease.sublessorID == user.id) {
+                            user.subleases.add(sublease);
+                        }
+                    }
+
+                    user.rating = 0;
+                    for (Review review : reviews) {
+                        if (review.userID == user.id) {
+                            user.rating += review.rating;
+                            user.reviews.add(review);
+                        }
+                    }
+                    user.rating /= user.reviews.size();
+
+                    for (int connectionID : user.connectionIDs) {
+                        user.connections.add(findUserByID(connectionID, false));
                     }
                 }
-
-                user.rating = 0;
-                for (Review review: reviews) {
-                    if (review.userID == user.id) {
-                        user.rating += review.rating;
-                        user.reviews.add(review);
-                    }
-                }
-                user.rating /= user.reviews.size();
-
-                for (int connectionID: user.connectionIDs) {
-                    user.connections.add(findUserByID(connectionID));
-                }
-
                 return user;
             }
         }

@@ -27,7 +27,7 @@ public class SubleaseActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        int subleaseID = getIntent().getIntExtra(ARG_SUBLEASE_ID, 0);
+        final int subleaseID = getIntent().getIntExtra(ARG_SUBLEASE_ID, 0);
         sublease = SampleData.findSubleaseByID(subleaseID);
 
         Button reviewButton = findViewById(R.id.sublease_review_button);
@@ -39,11 +39,12 @@ public class SubleaseActivity extends AppCompatActivity {
             }
         });
 
-        ImageView profileButton = findViewById(R.id.sublease_profile_button);
+        Button profileButton = findViewById(R.id.sublease_profile_button);
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent showProfileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                showProfileIntent.putExtra("PROFILE_ID", sublease.sublessorID);
                 showProfileIntent.putExtra("PROFILE_CAN_EDIT", false);
                 startActivity(showProfileIntent);
             }
@@ -60,7 +61,7 @@ public class SubleaseActivity extends AppCompatActivity {
         ImageView subleasePhoto1= findViewById(R.id.sublease_photo1);
         ImageView subleasePhoto2= findViewById(R.id.sublease_photo2);
 
-        User user = SampleData.findUserByID(sublease.sublessorID);
+        User user = SampleData.findUserByID(sublease.sublessorID, true);
         Building building = SampleData.findBuildingByID(sublease.buildingID);
 
         address.setText(building.address);
