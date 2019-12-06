@@ -103,7 +103,7 @@ public class SampleData {
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
         add(new Sublease(0,0, 0, 430,
                 "1/20/20","6/11/20", 3, 2,
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
+                "It is such a great place to live. The two story apartments have such great views!"));
         add(new Sublease(1,1, 1, 630,
                 "4/20/20","10/11/20", 1, 1,
                 "This building is very nice. It has big doors and many windows!"));
@@ -169,8 +169,8 @@ public class SampleData {
     }
 
     public static ArrayList<Review> reviews = new ArrayList<Review>() {{
-        add(new Review(0, 0, 4.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
-        add(new Review(1, 1, 2.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
+        add(new Review(0, 0, 4.5, "This place is nice except they have small parking space."));
+        add(new Review(1, 1, 2.5, "I loved living here. I had a really positive experience with this company. I do hope the office could be more helpful."));
     }};
 
     public static Review findReview(int userId, int buildingId) {
