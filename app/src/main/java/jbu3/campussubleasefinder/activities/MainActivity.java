@@ -23,6 +23,7 @@ import java.net.URI;
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.adapters.BuildingRecyclerViewAdapter;
 import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.models.FilterData;
 
 public class MainActivity extends AppCompatActivity implements BuildingRecyclerViewAdapter.ItemClickListener {
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SampleData.setFilteredBuildings("", null, null, -1, -1, 0, false, false);
+        SampleData.setFilteredBuildings(new FilterData());
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_account_circle_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        buildingsAdapter.notifyDataSetChanged();
     }
 
     @Override

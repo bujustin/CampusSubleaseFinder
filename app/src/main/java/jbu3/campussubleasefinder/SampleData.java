@@ -8,50 +8,59 @@ import java.util.Date;
 import java.util.HashSet;
 
 import jbu3.campussubleasefinder.models.Building;
+import jbu3.campussubleasefinder.models.FilterData;
 import jbu3.campussubleasefinder.models.Review;
 import jbu3.campussubleasefinder.models.Sublease;
 import jbu3.campussubleasefinder.models.User;
 
 public class SampleData {
+    public static FilterData currentFilters = new FilterData();
     public static ArrayList<Building> filteredBuildings = new ArrayList<>();
 
-    public static void setFilteredBuildings(String address, Date startDate, Date endDate, int bed, int bath, int rating, boolean parking, boolean pets) {
+    public static void setFilteredBuildings(FilterData filters) {
+        currentFilters = filters;
         filteredBuildings.clear();
         for (Building building: buildings) {
-            if ((address == "" || building.address == address) && building.rating >= rating && (!parking || building.parking) && (!pets || building.pets)) {
+            if ((filters.address.equals("") || building.address.equals(filters.address)) && building.rating >= filters.rating && (!filters.parking || building.parking) && (!filters.pets || building.pets)) {
                 building.subleases.clear();
                 building.reviews.clear();
 
-                int maxPrice = 0;
-                int minPrice = 100000000;
+                int maxBuildingPrice = 0;
+                int minBuildingPrice = 100000000;
+                building.numConnections = 0;
+                building.numSubleases = 0;
                 for (Sublease sublease : subleases) {
-                    if (sublease.buildingID == building.id && (bed < 0 || sublease.numBeds == bed) && (bath < 0 || sublease.numBaths == bath)) {
-                        SimpleDateFormat format = new SimpleDateFormat("mm/dd/yy");
-                        try {
-                            Date subStartDate = format.parse(sublease.startDate);
-                            Date subEndDate = format.parse(sublease.endDate);
-                            if (startDate == null || endDate == null || (subStartDate != null && subEndDate != null && startDate.after(subStartDate) && subEndDate.after(endDate))) {
-                                building.subleases.add(sublease);
-
-                                if (sublease.price > maxPrice) {
-                                    maxPrice = sublease.price;
+                    if (sublease.buildingID == building.id) {
+                        building.numSubleases++;
+                        if (sublease.price > maxBuildingPrice) {
+                            maxBuildingPrice = sublease.price;
+                        }
+                        if (sublease.price < minBuildingPrice) {
+                            minBuildingPrice = sublease.price;
+                        }
+                        if (Arrays.asList(users.get(0).connectionIDs).contains(sublease.sublessorID)) {
+                            building.numConnections++;
+                        }
+                        if (sublease.price > filters.minPrice && (filters.maxPrice < 0 || sublease.price < filters.maxPrice) && (filters.bed < 0 || sublease.numBeds == filters.bed) && (filters.bath < 0 || sublease.numBaths == filters.bath)) {
+                            SimpleDateFormat format = new SimpleDateFormat("mm/dd/yy");
+                            try {
+                                Date subStartDate = format.parse(sublease.startDate);
+                                Date subEndDate = format.parse(sublease.endDate);
+                                if ((filters.startDate == null || subStartDate == null || filters.startDate.after(subStartDate)) && (filters.endDate == null || subEndDate != null || subEndDate.after(filters.endDate))) {
+                                    building.subleases.add(sublease);
                                 }
-
-                                if (sublease.price < minPrice) {
-                                    minPrice = sublease.price;
-                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
                             }
-                        } catch (ParseException e) {
-                            e.printStackTrace();
                         }
                     }
                 }
 
-                if (maxPrice != 0) {
-                    if (maxPrice != minPrice) {
-                        building.priceRange = "$" + minPrice + " - $" + maxPrice;
+                if (maxBuildingPrice != 0) {
+                    if (maxBuildingPrice != minBuildingPrice) {
+                        building.priceRange = "$" + minBuildingPrice + " - $" + maxBuildingPrice;
                     } else {
-                        building.priceRange = "$" + maxPrice;
+                        building.priceRange = "$" + maxBuildingPrice;
                     }
                 } else {
                     building.priceRange = "0";
@@ -66,7 +75,9 @@ public class SampleData {
                 }
                 building.rating /= building.reviews.size();
 
-                filteredBuildings.add(building);
+                if (building.subleases.size() > 0) {
+                    filteredBuildings.add(building);
+                }
             }
         }
     }
