@@ -44,8 +44,8 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Building building = mData.get(position);
         holder.addressText.setText(building.address);
-        holder.numSubleasesText.setText(building.numSubleases + " Subleases");
-        holder.numConnectionsText.setText(building.numConnections + " Connections");
+        holder.numSubleasesText.setText(Integer.toString(building.numSubleases));
+        holder.numConnectionsText.setText(Integer.toString(building.numConnections));
         holder.ratingText.setText(Double.toString(building.rating));
 
         Picasso.get()

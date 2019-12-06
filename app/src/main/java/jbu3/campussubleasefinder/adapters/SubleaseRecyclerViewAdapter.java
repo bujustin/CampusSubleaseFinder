@@ -57,7 +57,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
         }
         holder.connectionsText.setText(SampleData.findConnections(0, sublease.sublessorID).toString());
         holder.detailsText.setText(sublease.details);
-        holder.priceText.setText(sublease.price + "/month");
+        holder.priceText.setText("$" + sublease.price + "/month");
         holder.startText.setText("Start: " + sublease.startDate);
         holder.endText.setText("End: " + sublease.endDate);
     }

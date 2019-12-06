@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -19,40 +19,45 @@
 
         <!-- Price -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_attach_money_gray_24dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_attach_money_gray_24dp"
+                        android:tint="@color/colorAccent" />
 
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Price: $" />
+                        android:text="Price/Month: "
+                        android:textColor="@color/text_color" />
 
                     <TextView
-                        android:id="@+id/sublease_price"
+                        android:id="@+id/building_info_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="420" />
+                        android:text="$420 - $540"
+                        android:textColor="@color/text_color" />
 
                 </LinearLayout>
 
@@ -60,79 +65,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_hotel_gray_24dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hotel_gray_24dp"
+                        android:tint="@color/colorAccent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Beds: " />
+                        android:text="Bedrooms: "
+                        android:textColor="@color/text_color" />
 
                     <TextView
-                        android:id="@+id/sublease_number_of_beds"
+                        android:id="@+id/building_info_num_beds"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2" />
+                        android:text="2 - 4"
+                        android:textColor="@color/text_color" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp">
-
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NO PETS ALLOWED " />
-
-
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_hot_tub_gray_24dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_vpn_key_black_24dp"
+                        android:tint="@color/colorAccent" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Bath: " />
+                        android:text="Subleases: "
+                        android:textColor="@color/text_color" />
 
                     <TextView
-                        android:id="@+id/sublease_number_of_baths"
+                        android:id="@+id/building_info_num_subleases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1" />
@@ -140,16 +126,26 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp">
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:tint="@color/colorAccent"
+                        app:srcCompat="@drawable/ic_pets_black_24dp" />
 
-
+                    <TextView
+                        android:id="@+id/building_info_pets_allowed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No pets allowed"
+                        android:textColor="@color/text_color" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -159,7 +155,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -167,8 +162,6 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Reviews"
             android:textColor="@color/colorPrimary"
@@ -180,7 +173,6 @@
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:numStars="5"
             android:stepSize="4.5" />
 

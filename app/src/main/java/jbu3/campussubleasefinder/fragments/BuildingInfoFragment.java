@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -69,20 +70,23 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         reviewsAdapter.setClickListener(this);
         reviewsRecyclerView.setAdapter(reviewsAdapter);
 
-        TextView price = view.findViewById(R.id.building_info_price_text);
+        TextView price = view.findViewById(R.id.building_info_price);
         TextView numSubleases = view.findViewById(R.id.building_info_num_subleases);
-        TextView numBedrooms = view.findViewById(R.id.building_info_num_bedrooms);
+        TextView numBedrooms = view.findViewById(R.id.building_info_num_beds);
         TextView petsAllowed = view.findViewById(R.id.building_info_pets_allowed);
 
-        price.setText("$" + building.priceRange);
-        numSubleases.setText(building.subleases.size() + " subleases");
-        numBedrooms.setText(building.numBedroomRange + " bedrooms");
+        price.setText(building.priceRange);
+        numSubleases.setText(Integer.toString(building.subleases.size()));
+        numBedrooms.setText(building.numBedroomRange);
         if (building.pets) {
             petsAllowed.setText("Pets allowed");
         } else {
-            petsAllowed.setText("No pets");
+            petsAllowed.setText("No pets allowed");
         }
 //        price.setText();
+
+        RatingBar rating = view.findViewById(R.id.building_info_average_rating);
+        rating.setRating((float) building.rating);
 
         return view;
     }

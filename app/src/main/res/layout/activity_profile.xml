@@ -46,22 +46,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/profile_about_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="About"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/profile_about_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:text="I'm a Senior in college looking for a sublease for the spring 2020 semsester" />
-
-            <TextView
                 android:id="@+id/profile_name_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,6 +92,22 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:text="2179790024" />
+
+            <TextView
+                android:id="@+id/profile_about_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="About"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/profile_about_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:text="I'm a Senior in college looking for a sublease for the spring 2020 semsester" />
 
             <TextView
                 android:id="@+id/profile_password_text_view"

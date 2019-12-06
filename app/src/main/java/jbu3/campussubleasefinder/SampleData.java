@@ -47,13 +47,24 @@ public class SampleData {
                     }
                 }
 
-                building.priceRange = minPrice + " - " + maxPrice;
+                if (maxPrice != 0) {
+                    if (maxPrice != minPrice) {
+                        building.priceRange = "$" + minPrice + " - $" + maxPrice;
+                    } else {
+                        building.priceRange = "$" + maxPrice;
+                    }
+                } else {
+                    building.priceRange = "0";
+                }
 
+                building.rating = 0;
                 for (Review review : reviews) {
                     if (review.buildingID == building.id) {
                         building.reviews.add(review);
+                        building.rating += review.rating;
                     }
                 }
+                building.rating /= building.reviews.size();
 
                 filteredBuildings.add(building);
             }
@@ -71,8 +82,8 @@ public class SampleData {
     }
 
     public static ArrayList<Building> buildings = new ArrayList<Building>() {{
-        add(new Building(0,"123 Example St.", 4, 2, 4.5, "2-4", true, false, "https://s.realpage.com/wp-content/uploads/sites/20/2016/02/shutterstock_135206831-1-e1565815548959.jpg"));
-        add(new Building(1, "123 Exampfjshkfle St.", 5, 1, 3.5, "2-3", false, true,"https://cdngeneral.rentcafe.com/dmslivecafe/3/632714/exterior-san-antonio-apartments.jpg"));
+        add(new Building(0,"123 Example St.",  "2-4", true, false, "https://s.realpage.com/wp-content/uploads/sites/20/2016/02/shutterstock_135206831-1-e1565815548959.jpg"));
+        add(new Building(1, "123 Exampfjshkfle St.", "2-3", false, true,"https://cdngeneral.rentcafe.com/dmslivecafe/3/632714/exterior-san-antonio-apartments.jpg"));
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{

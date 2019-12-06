@@ -31,6 +31,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:text="Jane Doe"
+                android:textColor="@color/colorPrimary"
                 android:textSize="21dp"
                 android:textStyle="bold" />
 
@@ -66,15 +67,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/sublease_details_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="AJDJHGFkjshkjfs sjdfhksdfxfdsfs dgfjdsdsxzcsvxcvxcvkj"
-            android:textSize="16sp" />
-
-        <TextView
             android:id="@+id/sublease_price_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,6 +91,16 @@
                 android:layout_weight="1"
                 android:text="End: 5/11" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/sublease_details_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:maxLines="3"
+            android:text="AJDJHGFkjshkjfs sjdfhksdfxfdsfs dgfjdsdsxzcsvxcvxcvkj"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

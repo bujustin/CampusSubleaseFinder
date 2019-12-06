@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_info"
         android:title="Info"
-        android:icon="@drawable/ic_filter_list_white_24dp"/>
-    <item android:id="@+id/action_subleases"
-        android:title="Subleases"
-        android:icon="@drawable/ic_people_white_24dp"/>
+        android:icon="@drawable/ic_home_black_48dp"/>
+    <item
+        android:id="@+id/action_subleases"
+        android:icon="@drawable/ic_vpn_key_black_24dp"
+        android:title="Subleases" />
 </menu>

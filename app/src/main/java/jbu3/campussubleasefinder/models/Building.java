@@ -17,12 +17,9 @@ public class Building {
     public ArrayList<Sublease> subleases;
     public String priceRange = "";
 
-    public Building(int id, String address, int numSubleases, int numConnections, double rating, String numBedroomRange, boolean parking, boolean pets, String imageURL) {
+    public Building(int id, String address, String numBedroomRange, boolean parking, boolean pets, String imageURL) {
         this.id = id;
         this.address = address;
-        this.numConnections = numConnections;
-        this.numSubleases = numSubleases;
-        this.rating = rating;
         this.numBedroomRange = numBedroomRange;
         this.parking = parking;
         this.pets = pets;
