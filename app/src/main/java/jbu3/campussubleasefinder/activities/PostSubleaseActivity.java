@@ -35,11 +35,11 @@ public class PostSubleaseActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       selectDate1 = findViewById(R.id.btnDate1);
-       date1 = findViewById(R.id.tvSelectedDate1);
+       selectDate1 = findViewById(R.id.filter_end_date_button);
+       date1 = findViewById(R.id.filter_end_date_text);
 
-       selectDate = findViewById(R.id.btnDate);
-       date = findViewById(R.id.tvSelectedDate);
+       selectDate = findViewById(R.id.filter_start_date_button);
+       date = findViewById(R.id.filter_start_date_text);
 
         selectDate.setOnClickListener(new View.OnClickListener() {
             @Override

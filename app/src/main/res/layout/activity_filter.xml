@@ -29,7 +29,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/filter_"
+                android:id="@+id/filter_address_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
@@ -58,21 +58,23 @@
                 android:textStyle="bold" />
 
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="&lt;$400"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$400-$800"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="&gt;$800"
-                    />
+            <CheckBox
+                android:id="@+id/filter_price_400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt;$400" />
+
+            <CheckBox
+                android:id="@+id/filter_price_400_800"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$400-$800" />
+
+            <CheckBox
+                android:id="@+id/filter_price_800"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&gt;$800" />
 
 
         </LinearLayout>
@@ -95,36 +97,38 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            <RadioGroup
+                android:id="@+id/filter_bedrooms_radio"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="13dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
-                    />
+                    android:text="1" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
-                    />
+                    android:text="2" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
-                    />
+                    android:text="3" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
-                    android:onClick="onRadioButtonClicked"/>
+                    android:onClick="onRadioButtonClicked"
+                    android:text="4" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"
-                    />
+                    android:text="5" />
             </RadioGroup>
 
         </LinearLayout>
@@ -147,36 +151,37 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            <RadioGroup
+                android:id="@+id/filter_bathrooms_radio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9.25dp"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
-                    />
+                    android:text="1" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
-                    />
+                    android:text="2" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
-                    />
+                    android:text="3" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
-                    />
+                    android:text="4" />
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"
-                    />
+                    android:text="5" />
             </RadioGroup>
 
         </LinearLayout>
@@ -191,7 +196,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDate"
+                android:id="@+id/filter_start_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -209,10 +214,10 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/tvSelectedDate"
+                    android:id="@+id/filter_start_date_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/btnDate"
+                    android:layout_below="@+id/filter_start_date_button"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
@@ -232,7 +237,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDate1"
+                android:id="@+id/filter_end_date_button"
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -250,10 +255,10 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/tvSelectedDate1"
+                    android:id="@+id/filter_end_date_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/btnDate1"
+                    android:layout_below="@+id/filter_end_date_button"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
@@ -282,7 +287,7 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/filter_parking_switch"
                 android:layout_marginLeft="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -311,21 +316,23 @@
                 android:textStyle="bold" />
 
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="&lt;$50"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$50-$80"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text= "&gt;$80"
-                    />
+            <CheckBox
+                android:id="@+id/filter_parking_price_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt;$50" />
+
+            <CheckBox
+                android:id="@+id/filter_parking_price_50_80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$50-$80" />
+
+            <CheckBox
+                android:id="@+id/filter_parking_price_80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&gt;$80" />
 
 
         </LinearLayout>
@@ -349,7 +356,7 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch2"
+                android:id="@+id/filter_pet_switch"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_height="match_parent" />
@@ -377,6 +384,7 @@
                 android:textStyle="bold" />
 
             <RatingBar
+                android:id="@+id/filter_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -387,7 +395,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/post_sublease_post_button"
+            android:id="@+id/filter_button"
             android:layout_width="144dp"
             android:layout_height="72dp"
             android:layout_marginTop="30dp"
@@ -396,8 +404,6 @@
             android:textColor="#FFFFFFFF"
             android:backgroundTintMode="add"
             android:text="Filter" />
-
-
 
     </LinearLayout>
 </ScrollView>

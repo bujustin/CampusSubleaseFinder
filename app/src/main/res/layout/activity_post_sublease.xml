@@ -180,7 +180,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDate"
+                android:id="@+id/filter_start_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -198,10 +198,10 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/tvSelectedDate"
+                    android:id="@+id/filter_start_date_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/btnDate"
+                    android:layout_below="@+id/filter_start_date_button"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
@@ -221,7 +221,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDate1"
+                android:id="@+id/filter_end_date_button"
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -239,10 +239,10 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/tvSelectedDate1"
+                    android:id="@+id/filter_end_date_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/btnDate1"
+                    android:layout_below="@+id/filter_end_date_button"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
@@ -271,7 +271,7 @@
                 android:textStyle="bold" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/filter_parking_switch"
                 android:layout_marginLeft="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -328,7 +328,7 @@
             android:textStyle="bold" />
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/filter_pet_switch"
             android:layout_width="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_height="match_parent" />
