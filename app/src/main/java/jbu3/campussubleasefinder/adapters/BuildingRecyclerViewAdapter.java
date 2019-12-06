@@ -46,7 +46,7 @@ public class BuildingRecyclerViewAdapter extends RecyclerView.Adapter<BuildingRe
         holder.addressText.setText(building.address);
         holder.numSubleasesText.setText(Integer.toString(building.numSubleases));
         holder.numConnectionsText.setText(Integer.toString(building.numConnections));
-        holder.ratingText.setText(Double.toString(building.rating));
+        holder.ratingText.setText(String.format("%.2f", building.rating));
 
         Picasso.get()
                 .load(building.imageURL)

@@ -216,19 +216,23 @@ public class FilterActivity extends AppCompatActivity {
         petSwitch.setChecked(SampleData.currentFilters.pets);
 
         Calendar cal = Calendar.getInstance();
-        cal.setTime(SampleData.currentFilters.startDate);
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        startDateText.setText((month + 1) + "/" + day + "/" + year);
-        startDate = SampleData.currentFilters.startDate;
+        if (SampleData.currentFilters.startDate != null) {
+            cal.setTime(SampleData.currentFilters.startDate);
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+            startDateText.setText((month + 1) + "/" + day + "/" + year);
+            startDate = SampleData.currentFilters.startDate;
+        }
 
-        cal.setTime(SampleData.currentFilters.endDate);
-        year = cal.get(Calendar.YEAR);
-        month = cal.get(Calendar.MONTH);
-        day = cal.get(Calendar.DAY_OF_MONTH);
-        endDateText.setText((month + 1) + "/" + day + "/" + year);
-        endDate = SampleData.currentFilters.endDate;
+        if (SampleData.currentFilters.endDate != null) {
+            cal.setTime(SampleData.currentFilters.endDate);
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+            endDateText.setText((month + 1) + "/" + day + "/" + year);
+            endDate = SampleData.currentFilters.endDate;
+        }
     }
 
     @Override

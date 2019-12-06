@@ -59,8 +59,6 @@ public class SubleaseActivity extends AppCompatActivity {
         TextView subleaseNumBed= findViewById(R.id.sublease_number_of_beds);
         TextView subleaseNumBath= findViewById(R.id.sublease_number_of_baths);
         TextView subleaseDetails = findViewById(R.id.sublease_details);
-        ImageView subleasePhoto1= findViewById(R.id.sublease_photo1);
-        ImageView subleasePhoto2= findViewById(R.id.sublease_photo2);
 
         User user = SampleData.findUserByID(sublease.sublessorID, true);
         Building building = SampleData.findBuildingByID(sublease.buildingID);

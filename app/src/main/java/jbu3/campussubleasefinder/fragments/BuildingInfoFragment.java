@@ -85,7 +85,7 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         }
 //        price.setText();
         
-        ((TextView)view.findViewById(R.id.building_ratings_text_view)).setText(Double.toString(building.getAvgRating()));
+        ((TextView)view.findViewById(R.id.building_ratings_text_view)).setText(String.format("%.2f", building.getAvgRating()));
         ((TextView)view.findViewById(R.id.building_num_reviews_text_view)).setText("("+Integer.toString(building.reviews.size())+")");
 
         return view;
