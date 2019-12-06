@@ -84,9 +84,9 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
             petsAllowed.setText("No pets allowed");
         }
 //        price.setText();
-
-        RatingBar rating = view.findViewById(R.id.building_info_average_rating);
-        rating.setRating((float) building.rating);
+        
+        ((TextView)view.findViewById(R.id.building_ratings_text_view)).setText(Double.toString(building.getAvgRating()));
+        ((TextView)view.findViewById(R.id.building_num_reviews_text_view)).setText("("+Integer.toString(building.reviews.size())+")");
 
         return view;
     }

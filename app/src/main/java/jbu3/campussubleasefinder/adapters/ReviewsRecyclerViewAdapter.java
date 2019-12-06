@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.models.Review;
 
@@ -41,6 +43,9 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Review review = mData.get(position);
+        holder.nameText.setText(SampleData.findUserByID(review.userID, false).name);
+        holder.ratingsBar.setRating((float)review.rating);
+        holder.detailsText.setText(review.text);
     }
 
     // total number of rows
@@ -54,6 +59,10 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     public class ViewHolder extends RecyclerView.ViewHolder {
         View cardView;
 
+        TextView nameText;
+        RatingBar ratingsBar;
+        TextView detailsText;
+
         ViewHolder(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.review_row_card_view);
@@ -63,6 +72,10 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
                     if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
                 }
             });
+
+            nameText = itemView.findViewById(R.id.review_row_name);
+            ratingsBar = itemView.findViewById(R.id.review_row_rating);
+            detailsText = itemView.findViewById(R.id.review_row_details);
         }
     }
 

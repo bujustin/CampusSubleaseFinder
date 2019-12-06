@@ -113,7 +113,7 @@ public class SampleData {
         add(new User(4,"Jake Blake", "jbl2@illinois.edu",  "(512) 623-5315", "I am pretty suave", new Integer[]{0,1}));
     }};
 
-    public static Integer findConnections(int user1Id, int user2Id) {
+    public static Integer findNumConnections(int user1Id, int user2Id) {
         HashSet<Integer> set = new HashSet<>();
 
         set.addAll(Arrays.asList(findUserByID(user1Id, false).connectionIDs));
@@ -165,7 +165,6 @@ public class SampleData {
                 return review;
             }
         }
-
         return null;
     }
 }
