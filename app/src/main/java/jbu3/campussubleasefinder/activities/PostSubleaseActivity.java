@@ -50,8 +50,8 @@ public class PostSubleaseActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       startDateText = findViewById(R.id.filter_start_date_text);
-        endDateText = findViewById(R.id.filter_end_date_text);
+        startDateText = findViewById(R.id.post_sublease_start_date_text);
+        endDateText = findViewById(R.id.post_sublease_end_date_text);
 
         startDateText.setOnClickListener(new View.OnClickListener() {
             @Override
