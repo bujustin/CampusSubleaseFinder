@@ -119,10 +119,10 @@ public class SampleData {
         add(new Sublease(5,1, 4, 120,
                 "8/14/20","12/12/20", 4, 2,
                 "Close to Siebel Center and the Engineering Quad."));
-        add(new Sublease(5,2, 3, 750,
+        add(new Sublease(6,2, 3, 750,
                 "7/20/20","11/20/20", 4, 2,
                 "Nice house. Big rooms. Big doors. Very good."));
-        add(new Sublease(5,3, 3, 250,
+        add(new Sublease(7,3, 3, 250,
                 "10/01/20","12/12/20", 4, 2,
                 "Close to my favorite restaurant pizza hut."));
     }};
