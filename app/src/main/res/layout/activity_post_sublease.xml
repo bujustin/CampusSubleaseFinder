@@ -341,15 +341,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/bUploadImage"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_border"
-                android:text="UPLOAD PHOTOS" />
+                android:layout_marginTop="12dp"
+                android:text="UPLOAD PHOTO" />
+
+            <ImageView
+                android:id="@+id/ImageToUpload"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_crop_original_black_24dp" />
 
         </LinearLayout>
 
@@ -358,12 +367,11 @@
             android:layout_width="144dp"
             android:layout_height="72dp"
             android:layout_marginTop="30dp"
-            android:textSize="25sp"
             android:background="@color/colorPrimary"
-            android:textColor="#FFFFFFFF"
             android:backgroundTintMode="add"
-            android:text="POST" />
-
+            android:text="POST"
+            android:textColor="#FFFFFFFF"
+            android:textSize="25sp" />
 
 
     </LinearLayout>
