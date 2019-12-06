@@ -103,10 +103,22 @@ public class SampleData {
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
         add(new Sublease(0,0, 0, 430,
                 "1/20/20","6/11/20", 3, 2,
-                "It is such a great place to live. The two story apartments have such great views!"));
-        add(new Sublease(1,1, 1, 630,
-                "4/20/20","10/11/20", 1, 1,
-                "This building is very nice. It has big doors and many windows!"));
+                "Has plenty of room inside of each bedroom. I have a high room and it has a great view outside."));
+        add(new Sublease(1,1, 0, 530,
+                "1/20/20","6/11/20", 3, 2,
+                "Comes with a laundry room and has parking"));
+        add(new Sublease(2,2, 1, 850,
+                "4/20/20","10/11/20", 2, 1,
+                "Its a great location, it's pretty close to campus and it's right next to the bars."));
+        add(new Sublease(3,3, 2, 750,
+                "8/20/20","12/20/20", 2, 1,
+                "It's close to County Market.  Also not too far from the Quad"));
+        add(new Sublease(4,4, 3, 550,
+                "8/20/20","6/20/21", 4, 2,
+                "Great apartment with 3 great roommates!"));
+        add(new Sublease(5,5, 4, 550,
+                "8/20/20","12/20/20", 4, 2,
+                "Close to Siebel Center and the Engineering Quad."));
     }};
 
     public static Sublease findSubleaseByID(int id) {
