@@ -85,17 +85,29 @@ public class SampleData {
         add(new Building(0,"309 E Green St.",  "2-4", true, false, "https://upload.wikimedia.org/wikipedia/commons/d/dc/309_Green_Street_Champaign.jpg"));
         add(new Building(1,"519 E Green St. (Skyline Apartments)", "2-4", true, true,"https://www.bankierapartments.com/uploads/application/images/1000/dmam6oyl1xnm7ok0mtihaylhc2vd5oqdrrtnof787kp78lsob6.jpg"));
         add(new Building(2,"501 S 6th St.",  "2-5", true, false, "https://photonet.hotpads.com/search/listingPhoto/Postlets/RT15712810/0000_978452556_large.jpg"));
-        add(new Building(4,"308 E Green St. (HERE.)",  "2-4", true, false, "https://commoncdn.entrata.com/images/thumbNailer.php?src=/media_library/10364/564a62b3cefb6809.jpg&w=1280&h=720"));
-        add(new Building(5,"608 E University Ave. (Latitude Apartments)",  "2-4", true, false, "https://bloximages.newyork1.vip.townnews.com/news-gazette.com/content/tncms/assets/v3/editorial/3/2f/32f21134-c2c5-5131-becb-6cb88e4f9f3b/5d137115ae39a.image.jpg?resize=1700%2C1133"));
+        add(new Building(3,"308 E Green St. (HERE.)",  "2-4", true, false, "https://commoncdn.entrata.com/images/thumbNailer.php?src=/media_library/10364/564a62b3cefb6809.jpg&w=1280&h=720"));
+        add(new Building(4,"608 E University Ave. (Latitude Apartments)",  "2-4", true, false, "https://bloximages.newyork1.vip.townnews.com/news-gazette.com/content/tncms/assets/v3/editorial/3/2f/32f21134-c2c5-5131-becb-6cb88e4f9f3b/5d137115ae39a.image.jpg?resize=1700%2C1133"));
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
         add(new Sublease(0,0, 0, 430,
                 "1/20/20","6/11/20", 3, 2,
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
-        add(new Sublease(1,1, 1, 630,
-                "4/20/20","10/11/20", 1, 1,
-                "This building is very nice. It has big doors and many windows!"));
+                "Has plenty of room inside of each bedroom. I have a high room and it has a great view outside."));
+        add(new Sublease(1,1, 0, 530,
+                "1/20/20","6/11/20", 3, 2,
+                "Comes with a laundry room and has parking"));
+        add(new Sublease(2,2, 1, 850,
+                "4/20/20","10/11/20", 2, 1,
+                "Its a great location, it's pretty close to campus and it's right next to the bars."));
+        add(new Sublease(3,3, 2, 750,
+                "8/20/20","12/20/20", 2, 1,
+                "It's close to County Market.  Also not too far from the Quad"));
+        add(new Sublease(4,4, 3, 550,
+                "8/20/20","6/20/21", 4, 2,
+                "Great apartment with 3 great roommates!"));
+        add(new Sublease(5,5, 4, 550,
+                "8/20/20","12/20/20", 4, 2,
+                "Close to Siebel Center and the Engineering Quad."));
     }};
 
     public static Sublease findSubleaseByID(int id) {
