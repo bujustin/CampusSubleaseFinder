@@ -170,7 +170,7 @@ public class SampleData {
 
     public static ArrayList<Review> reviews = new ArrayList<Review>() {{
         add(new Review(0, 0, 4.5, "This place is nice except they have small parking space."));
-        add(new Review(1, 1, 2.5, "I loved living here. I had a really positive experience with this company. I do hope the office could be more helpful."));
+        add(new Review(1, 1, 2.5, "I loved living here. I had a positive experience with this company. I do hope the room could be bigger."));
     }};
 
     public static Review findReview(int userId, int buildingId) {
