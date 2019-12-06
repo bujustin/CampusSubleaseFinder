@@ -55,7 +55,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
             // no reviews yet
             holder.ratingText.setText("0");
         }
-        holder.connectionsText.setText(SampleData.findConnections(0, sublease.sublessorID).toString());
+        holder.connectionsText.setText(SampleData.findNumConnections(0, sublease.sublessorID).toString());
         holder.detailsText.setText(sublease.details);
         holder.priceText.setText("$" + sublease.price + "/month");
         holder.startText.setText("Start: " + sublease.startDate);
@@ -91,13 +91,13 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
                 }
             });
 
-            nameText = itemView.findViewById(R.id.sublease_name_text_view);
-            ratingText = itemView.findViewById(R.id.sublease_rating_text_view);
-            connectionsText = itemView.findViewById(R.id.sublease_connections_text_view);
-            detailsText = itemView.findViewById(R.id.sublease_details_text_view);
-            priceText = itemView.findViewById(R.id.sublease_price_text_view);
-            startText = itemView.findViewById(R.id.sublease_start_date_text_view);
-            endText = itemView.findViewById(R.id.sublease_end_date_text_view);
+            nameText = itemView.findViewById(R.id.sublease_row_name_text_view);
+            ratingText = itemView.findViewById(R.id.sublease_row_rating_text_view);
+            connectionsText = itemView.findViewById(R.id.sublease_row_connections_text_view);
+            detailsText = itemView.findViewById(R.id.sublease_row_details_text_view);
+            priceText = itemView.findViewById(R.id.sublease_row_price_text_view);
+            startText = itemView.findViewById(R.id.sublease_row_start_date_text_view);
+            endText = itemView.findViewById(R.id.sublease_row_end_date_text_view);
         }
     }
 

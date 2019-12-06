@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Building Information:"
+            android:text="Building Information"
             android:textColor="@color/colorPrimary"
             android:textSize="25dp" />
 
@@ -158,23 +158,35 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Reviews"
-            android:textColor="@color/colorPrimary"
-            android:textSize="25dp" />
-
-        <RatingBar
-
-            android:id="@+id/building_info_average_rating"
-            style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="4.5" />
+            android:text="Reviews"
+            android:textSize="25sp"
+            android:textColor="@color/colorPrimary" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:tint="@color/colorAccent"
+            android:src="@drawable/ic_star_gray_24dp" />
+
+        <TextView
+            android:id="@+id/building_ratings_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="3.5"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/building_num_reviews_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="(12)"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

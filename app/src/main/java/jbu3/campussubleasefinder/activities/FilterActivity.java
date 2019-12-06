@@ -3,6 +3,7 @@ package jbu3.campussubleasefinder.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.media.Rating;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -18,18 +20,29 @@ import java.util.Calendar;
 import java.util.Date;
 
 import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.SampleData;
+import jbu3.campussubleasefinder.models.FilterData;
 
 public class FilterActivity extends AppCompatActivity {
+    EditText addressText;
+    CheckBox priceCheck400;
+    CheckBox priceCheck400_800;
+    CheckBox priceCheck800;
+    RadioGroup numBedroomsRadio;
+    RadioGroup numBathroomRadio;
+    Switch parkingSwitch;
+    Switch petSwitch;
+    RatingBar ratingBar;
+    Button filterButton;
 
-    Button startDateButton;
     TextView startDateText;
-    Button endDateButton;
     TextView endDateText;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
     int dayOfMonth;
     Calendar calendar;
+
     Date startDate;
     Date endDate;
 
@@ -40,13 +53,10 @@ public class FilterActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        endDateButton = findViewById(R.id.filter_end_date_button);
+        startDateText = findViewById(R.id.filter_start_date_text);
         endDateText = findViewById(R.id.filter_end_date_text);
 
-        startDateButton = findViewById(R.id.filter_start_date_button);
-        startDateText = findViewById(R.id.filter_start_date_text);
-
-        startDateButton.setOnClickListener(new View.OnClickListener() {
+        startDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -57,7 +67,7 @@ public class FilterActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         startDate = new Date(datePicker.getCalendarView().getDate());
-                        startDateText.setText(day + "/" + (month + 1) + "/" + year);
+                        startDateText.setText((month + 1) + "/" + day + "/" + year);
                     }
                 }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -65,7 +75,7 @@ public class FilterActivity extends AppCompatActivity {
             }
         });
 
-        endDateButton.setOnClickListener(new View.OnClickListener() {
+        endDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -76,7 +86,7 @@ public class FilterActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                     endDate = new Date(datePicker.getCalendarView().getDate());
-                    endDateText.setText(day + "/" + (month + 1) + "/" + year);
+                    endDateText.setText((month + 1) + "/" + day + "/" + year);
                     }
                 }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -84,22 +94,122 @@ public class FilterActivity extends AppCompatActivity {
             }
         });
 
-        EditText addressText = findViewById(R.id.filter_address_text);
-        CheckBox priceCheck400 = findViewById(R.id.filter_price_400);
-        CheckBox priceCheck400_800 = findViewById(R.id.filter_price_400_800);
-        CheckBox priceCheck800 = findViewById(R.id.filter_price_800);
+        addressText = findViewById(R.id.filter_address_text);
+        priceCheck400 = findViewById(R.id.filter_price_400);
+        priceCheck400_800 = findViewById(R.id.filter_price_400_800);
+        priceCheck800 = findViewById(R.id.filter_price_800);
 
-        RadioGroup numBedroomsRadio = findViewById(R.id.filter_bedrooms_radio);
-        RadioGroup numBathroomRadio = findViewById(R.id.filter_bathrooms_radio);
+        numBedroomsRadio = findViewById(R.id.filter_bedrooms_radio);
+        numBathroomRadio = findViewById(R.id.filter_bathrooms_radio);
 
-        Switch parkingSwitch = findViewById(R.id.filter_parking_switch);
-        CheckBox parkingPriceCheck50 = findViewById(R.id.filter_parking_price_50);
-        CheckBox parkingPriceCheck50_80 = findViewById(R.id.filter_parking_price_50_80);
-        CheckBox parkingPriceCheck80 = findViewById(R.id.filter_parking_price_80);
+        parkingSwitch = findViewById(R.id.filter_parking_switch);
+        petSwitch = findViewById(R.id.filter_pet_switch);
+        ratingBar = findViewById(R.id.filter_rating);
 
-        Switch petSwitch = findViewById(R.id.filter_pet_switch);
+        filterButton = findViewById(R.id.filter_button);
 
+        loadFilters();
 
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int minPrice = -1;
+                int maxPrice = -1;
+                if (priceCheck400.isChecked()) {
+                    minPrice = 0;
+                    maxPrice = 400;
+                }
+                if (priceCheck400_800.isChecked()) {
+                    if (minPrice < 0) {
+                        minPrice = 400;
+                    }
+                    maxPrice = 800;
+                }
+                if (priceCheck800.isChecked()) {
+                    if (minPrice < 0) {
+                        minPrice = 800;
+                    }
+                    maxPrice = 1000000000;
+                }
+
+                int numBeds = -1;
+                int radioButtonID = numBedroomsRadio.getCheckedRadioButtonId();
+                if (radioButtonID > 0) {
+                    numBeds = numBedroomsRadio.indexOfChild(numBedroomsRadio.findViewById(radioButtonID));
+                }
+
+                int numBaths = -1;
+                radioButtonID = numBathroomRadio.getCheckedRadioButtonId();
+                if (radioButtonID > 0) {
+                    numBaths = numBathroomRadio.indexOfChild(numBedroomsRadio.findViewById(radioButtonID));
+                }
+
+                SampleData.setFilteredBuildings(new FilterData(addressText.getText().toString(), startDate, endDate, minPrice, maxPrice, numBeds, numBaths, ratingBar.getRating(), parkingSwitch.isChecked(), petSwitch.isChecked()));
+                finish();
+            }
+        });
+    }
+
+    private void loadFilters() {
+        addressText.setText(SampleData.currentFilters.address);
+        if (SampleData.currentFilters.minPrice == 0) {
+            priceCheck400.setChecked(true);
+        } else {
+            priceCheck400.setChecked(false);
+        }
+
+        if (SampleData.currentFilters.minPrice <= 400 && SampleData.currentFilters.maxPrice >= 800) {
+            priceCheck400_800.setChecked(true);
+        } else {
+            priceCheck400_800.setChecked(false);
+        }
+
+        if (SampleData.currentFilters.maxPrice > 800) {
+            priceCheck800.setChecked(true);
+        } else {
+            priceCheck800.setChecked(false);
+        }
+
+        switch (SampleData.currentFilters.bed) {
+            case 1:
+                numBedroomsRadio.check(R.id.filter_bed_radio_1);
+                break;
+            case 2:
+                numBedroomsRadio.check(R.id.filter_bed_radio_2);
+                break;
+            case 3:
+                numBedroomsRadio.check(R.id.filter_bed_radio_3);
+                break;
+            case 4:
+                numBedroomsRadio.check(R.id.filter_bed_radio_4);
+                break;
+            case 5:
+                numBedroomsRadio.check(R.id.filter_bed_radio_5);
+                break;
+        }
+
+        switch (SampleData.currentFilters.bath) {
+            case 1:
+                numBathroomRadio.check(R.id.filter_bath_radio_1);
+                break;
+            case 2:
+                numBathroomRadio.check(R.id.filter_bath_radio_2);
+                break;
+            case 3:
+                numBathroomRadio.check(R.id.filter_bath_radio_3);
+                break;
+            case 4:
+                numBathroomRadio.check(R.id.filter_bath_radio_4);
+                break;
+            case 5:
+                numBathroomRadio.check(R.id.filter_bath_radio_5);
+                break;
+        }
+
+        ratingBar.setRating((float) SampleData.currentFilters.rating);
+
+        parkingSwitch.setChecked(SampleData.currentFilters.parking);
+        petSwitch.setChecked(SampleData.currentFilters.pets);
     }
 
     @Override

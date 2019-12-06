@@ -27,4 +27,12 @@ public class Building {
         reviews = new ArrayList<>();
         subleases = new ArrayList<>();
     }
+
+    public double getAvgRating() {
+        double sum = 0;
+        for (Review review : this.reviews) {
+            sum += review.rating;
+        }
+        return sum / this.reviews.size();
+    }
 }

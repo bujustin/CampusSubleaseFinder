@@ -25,4 +25,12 @@ public class User {
         this.reviews = new ArrayList<>();
         this.connections = new ArrayList<>();
     }
+
+    public double getAvgRating() {
+        double sum = 0;
+        for (Review review : this.reviews) {
+            sum += review.rating;
+        }
+        return sum / this.reviews.size();
+    }
 }

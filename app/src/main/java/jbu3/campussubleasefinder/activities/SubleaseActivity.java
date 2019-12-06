@@ -13,6 +13,7 @@ import android.widget.TextView;
 import jbu3.campussubleasefinder.R;
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.models.Building;
+import jbu3.campussubleasefinder.models.Review;
 import jbu3.campussubleasefinder.models.Sublease;
 import jbu3.campussubleasefinder.models.User;
 
@@ -72,6 +73,16 @@ public class SubleaseActivity extends AppCompatActivity {
         subleaseNumBed.setText(Integer.toString(sublease.numBeds));
         subleaseNumBath.setText(Integer.toString(sublease.numBaths));
         subleaseDetails.setText(sublease.details);
+
+        Review review = SampleData.findReview(sublease.sublessorID, sublease.buildingID);
+        if (review != null) {
+            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText(Double.toString(review.rating));
+        }
+        else {
+            // no reviews yet
+            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText("0");
+        }
+        ((TextView)findViewById(R.id.sublease_connections_text_view)).setText(SampleData.findNumConnections(0, sublease.sublessorID).toString());
     }
 
     @Override

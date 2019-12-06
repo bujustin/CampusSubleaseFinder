@@ -21,10 +21,8 @@ import jbu3.campussubleasefinder.R;
 public class PostSubleaseActivity extends AppCompatActivity {
 
 
-    Button selectDate;
-    TextView date;
-    Button selectDate1;
-    TextView date1;
+    TextView startDateText;
+    TextView endDateText;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
@@ -52,13 +50,10 @@ public class PostSubleaseActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-       selectDate1 = findViewById(R.id.filter_end_date_button);
-       date1 = findViewById(R.id.filter_end_date_text);
+        startDateText = findViewById(R.id.post_sublease_start_date_text);
+        endDateText = findViewById(R.id.post_sublease_end_date_text);
 
-       selectDate = findViewById(R.id.filter_start_date_button);
-       date = findViewById(R.id.filter_start_date_text);
-
-        selectDate.setOnClickListener(new View.OnClickListener() {
+        startDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -68,15 +63,15 @@ public class PostSubleaseActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(PostSubleaseActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                date.setText(day + "/" + (month + 1) + "/" + year);
-                            }
-                        }, year, month, dayOfMonth);
+                    startDateText.setText((month + 1) + "/" + day + "/" + year);
+                    }
+                }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });
 
-        selectDate1.setOnClickListener(new View.OnClickListener() {
+        endDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -86,7 +81,7 @@ public class PostSubleaseActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(PostSubleaseActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        date1.setText(day + "/" + (month + 1) + "/" + year);
+                    endDateText.setText((month + 1) + "/" + day + "/" + year);
                     }
                 }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -101,20 +96,18 @@ public class PostSubleaseActivity extends AppCompatActivity {
         imageToUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+            Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
             }
         });
         bUploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+            Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
             }
         });
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
