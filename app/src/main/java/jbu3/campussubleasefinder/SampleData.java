@@ -184,13 +184,13 @@ public class SampleData {
         add(new Review(0, 0, 4.5, "Great place to stay! I could walk to class everyday which was great as I don't have a car. The Host was very courteous. It was great experience staying here!!"));
         add(new Review(1, 1, 2.5, "The building was not as advertised by the host. The apartment was very dirty and some of facilities promised were not working. The building was nice but I do not recommend staying here."));
         add(new Review(0, 0, 4.5, "Fantastic Experience!! Building has great facilities and the apartment comes with a balcony that provides a great panoramic view of the city. The Host was great and upfront with all our dealings."));
-        add(new Review(0, 0, 4.5, "Great place to stay. I would definitely recommend staying here if you are taking classes near the main quad. The sublessor was very nice and helped me settle in with the other roommates."));
+        add(new Review(0, 0, 5, "Great place to stay. I would definitely recommend staying here if you are taking classes near the main quad. The sublessor was very nice and helped me settle in with the other roommates."));
         add(new Review(0, 0, 4.5, "Love the building !! Love the Sublessor !! Fantastic Experience !! 100% recommend !!"));
-        add(new Review(0, 0, 4.5, "Awesome Experience! The roommates were very friendly. The location was great – right next to the bars!!. The Apartment was new and clean with great amenities. The sublessor was very helpful. I would recommend this to anyone who likes going to bars and wants to live in a modern building - full of college students."));
+        add(new Review(0, 0, 5, "Awesome Experience! The roommates were very friendly. The location was great – right next to the bars!!. The Apartment was new and clean with great amenities. The sublessor was very helpful. I would recommend this to anyone who likes going to bars and wants to live in a modern building - full of college students."));
         add(new Review(0, 0, 4.5, "Perfect Location – 10 min walk to the main quad, near a lot of the restaurants on campus and has a couple of bars nearby. Apartment was clean and has great maintenance. The host was very adjusting and helpful!!"));
-        add(new Review(0, 0, 4.5, "DO NOT STAY HERE! The sublessor was great and very helpful but the building staff/maintenance were horrible. Took them 3 weeks to fix the air conditioning. Also, a lot of the amenities are very old and don’t work properly."));
+        add(new Review(0, 0, 3.5, "DO NOT STAY HERE! The sublessor was great and very helpful but the building staff/maintenance were horrible. Took them 3 weeks to fix the air conditioning. Also, a lot of the amenities are very old and don’t work properly."));
         add(new Review(0, 0, 4.5, "Loved the building but the staff and the building managers were very rude.I was overcharged for utilities multiple times.The sublessor was nice and helped me out the best he could.Almost the perfect experience!!"));
-        add(new Review(0, 0, 4.5, "Filthy Apartment!! There was mold in the fridge which had not been cleaned in a while. The room was very small and didn’t have enough space for my stuff.The host was not upfront about the state of the apartment."));
+        add(new Review(0, 0, 2.5, "Filthy Apartment!! There was mold in the fridge which had not been cleaned in a while. The room was very small and didn’t have enough space for my stuff.The host was not upfront about the state of the apartment."));
 
     }};
 
