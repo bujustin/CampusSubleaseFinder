@@ -85,8 +85,8 @@ public class SampleData {
         add(new Building(0,"309 E Green St.",  "2-4", true, false, "https://upload.wikimedia.org/wikipedia/commons/d/dc/309_Green_Street_Champaign.jpg"));
         add(new Building(1,"519 E Green St. (Skyline Apartments)", "2-4", true, true,"https://www.bankierapartments.com/uploads/application/images/1000/dmam6oyl1xnm7ok0mtihaylhc2vd5oqdrrtnof787kp78lsob6.jpg"));
         add(new Building(2,"501 S 6th St.",  "2-5", true, false, "https://photonet.hotpads.com/search/listingPhoto/Postlets/RT15712810/0000_978452556_large.jpg"));
-        add(new Building(4,"308 E Green St. (HERE.)",  "2-4", true, false, "https://commoncdn.entrata.com/images/thumbNailer.php?src=/media_library/10364/564a62b3cefb6809.jpg&w=1280&h=720"));
-        add(new Building(5,"608 E University Ave. (Latitude Apartments)",  "2-4", true, false, "https://bloximages.newyork1.vip.townnews.com/news-gazette.com/content/tncms/assets/v3/editorial/3/2f/32f21134-c2c5-5131-becb-6cb88e4f9f3b/5d137115ae39a.image.jpg?resize=1700%2C1133"));
+        add(new Building(3,"308 E Green St. (HERE.)",  "2-4", true, false, "https://commoncdn.entrata.com/images/thumbNailer.php?src=/media_library/10364/564a62b3cefb6809.jpg&w=1280&h=720"));
+        add(new Building(4,"608 E University Ave. (Latitude Apartments)",  "2-4", true, false, "https://bloximages.newyork1.vip.townnews.com/news-gazette.com/content/tncms/assets/v3/editorial/3/2f/32f21134-c2c5-5131-becb-6cb88e4f9f3b/5d137115ae39a.image.jpg?resize=1700%2C1133"));
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
@@ -158,8 +158,17 @@ public class SampleData {
     }
 
     public static ArrayList<Review> reviews = new ArrayList<Review>() {{
-        add(new Review(0, 0, 4.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
-        add(new Review(1, 1, 2.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
+        add(new Review(0, 0, 4.5, "Great place to stay! I could walk to class everyday which was great as I don't have a car. The Host was very courteous. It was great experience staying here!!"));
+        add(new Review(1, 1, 2.5, "The building was not as advertised by the host. The apartment was very dirty and some of facilities promised were not working. The building was nice but I do not recommend staying here."));
+        add(new Review(0, 0, 4.5, "Fantastic Experience!! Building has great facilities and the apartment comes with a balcony that provides a great panoramic view of the city. The Host was great and upfront with all our dealings."));
+        add(new Review(0, 0, 4.5, "Great place to stay. I would definitely recommend staying here if you are taking classes near the main quad. The sublessor was very nice and helped me settle in with the other roommates."));
+        add(new Review(0, 0, 4.5, "Love the building !! Love the Sublessor !! Fantastic Experience !! 100% recommend !!"));
+        add(new Review(0, 0, 4.5, "Awesome Experience! The roommates were very friendly. The location was great – right next to the bars!!. The Apartment was new and clean with great amenities. The sublessor was very helpful. I would recommend this to anyone who likes going to bars and wants to live in a modern building - full of college students."));
+        add(new Review(0, 0, 4.5, "Perfect Location – 10 min walk to the main quad, near a lot of the restaurants on campus and has a couple of bars nearby. Apartment was clean and has great maintenance. The host was very adjusting and helpful!!"));
+        add(new Review(0, 0, 4.5, "DO NOT STAY HERE! The sublessor was great and very helpful but the building staff/maintenance were horrible. Took them 3 weeks to fix the air conditioning. Also, a lot of the amenities are very old and don’t work properly."));
+        add(new Review(0, 0, 4.5, "Loved the building but the staff and the building managers were very rude.I was overcharged for utilities multiple times.The sublessor was nice and helped me out the best he could.Almost the perfect experience!!"));
+        add(new Review(0, 0, 4.5, "Filthy Apartment!! There was mold in the fridge which had not been cleaned in a while. The room was very small and didn’t have enough space for my stuff.The host was not upfront about the state of the apartment."));
+
     }};
 
     public static Review findReview(int userId, int buildingId) {
