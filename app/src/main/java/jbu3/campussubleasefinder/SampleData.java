@@ -82,8 +82,11 @@ public class SampleData {
     }
 
     public static ArrayList<Building> buildings = new ArrayList<Building>() {{
-        add(new Building(0,"123 Example St.",  "2-4", true, false, "https://s.realpage.com/wp-content/uploads/sites/20/2016/02/shutterstock_135206831-1-e1565815548959.jpg"));
-        add(new Building(1, "123 Exampfjshkfle St.", "2-3", false, true,"https://cdngeneral.rentcafe.com/dmslivecafe/3/632714/exterior-san-antonio-apartments.jpg"));
+        add(new Building(0,"309 E Green St.",  "2-4", true, false, "https://upload.wikimedia.org/wikipedia/commons/d/dc/309_Green_Street_Champaign.jpg"));
+        add(new Building(1,"519 E Green St. (Skyline Apartments)", "2-4", true, true,"https://www.bankierapartments.com/uploads/application/images/1000/dmam6oyl1xnm7ok0mtihaylhc2vd5oqdrrtnof787kp78lsob6.jpg"));
+        add(new Building(2,"501 S 6th St.",  "2-5", true, false, "https://photonet.hotpads.com/search/listingPhoto/Postlets/RT15712810/0000_978452556_large.jpg"));
+        add(new Building(4,"308 E Green St. (HERE.)",  "2-4", true, false, "https://commoncdn.entrata.com/images/thumbNailer.php?src=/media_library/10364/564a62b3cefb6809.jpg&w=1280&h=720"));
+        add(new Building(5,"608 E University Ave. (Latitude Apartments)",  "2-4", true, false, "https://bloximages.newyork1.vip.townnews.com/news-gazette.com/content/tncms/assets/v3/editorial/3/2f/32f21134-c2c5-5131-becb-6cb88e4f9f3b/5d137115ae39a.image.jpg?resize=1700%2C1133"));
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
