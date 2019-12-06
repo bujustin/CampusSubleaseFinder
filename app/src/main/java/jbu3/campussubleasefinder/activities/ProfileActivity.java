@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import jbu3.campussubleasefinder.R;
 import jbu3.campussubleasefinder.SampleData;
@@ -30,6 +34,9 @@ public class ProfileActivity extends AppCompatActivity
 
     private User user;
 
+    private Button loadContacts;
+    private TextView listContacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity
             // hide password input, import contacts
             TextView passwordTextView = findViewById(R.id.profile_password_text_view);
             EditText passwordEditText = findViewById(R.id.profile_password_edit_text);
-            Button importContactsButton = findViewById(R.id.import_contacts_button);
+            Button importContactsButton = findViewById(R.id.loadContacts);
             passwordTextView.setVisibility(View.GONE);
             passwordEditText.setVisibility(View.GONE);
             importContactsButton.setVisibility(View.GONE);
@@ -85,7 +92,18 @@ public class ProfileActivity extends AppCompatActivity
         connectionsRecyclerView.setAdapter(connectionsAdapter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        listContacts = (TextView) findViewById(R.id.listContacts);
+        loadContacts = (Button) findViewById(R.id.loadContacts);
+        loadContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Contacts Imported Successfully!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
 
     public void populateText(User user) {
         ((EditText)findViewById(R.id.profile_about_edit_text)).setText(user.about);
@@ -112,4 +130,5 @@ public class ProfileActivity extends AppCompatActivity
     public void onItemClick(View view, int position) {
         // start user intent
     }
+
 }
