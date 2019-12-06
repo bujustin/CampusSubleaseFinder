@@ -3,7 +3,9 @@ package jbu3.campussubleasefinder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 
 import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.models.Review;
@@ -74,7 +76,12 @@ public class SampleData {
     }};
 
     public static ArrayList<Sublease> subleases = new ArrayList<Sublease>() {{
-        add(new Sublease(0,0, 0, 430, "1/20/20","6/11/20", 3, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
+        add(new Sublease(0,0, 0, 430,
+                "1/20/20","6/11/20", 3, 2,
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."));
+        add(new Sublease(1,1, 1, 630,
+                "4/20/20","10/11/20", 1, 1,
+                "This building is very nice. It has big doors and many windows!"));
     }};
 
     public static Sublease findSubleaseByID(int id) {
@@ -88,9 +95,20 @@ public class SampleData {
     }
 
     public static ArrayList<User> users = new ArrayList<User>() {{
-        add(new User(0,"Jane Doe", "janed6@illinois.edu", "(324) 325-3463", "I have a cat", new int[]{1}));
-        add(new User(1,"John Doe", "jognd18@illinois.edu",  "(645) 824-3857", "I am pretty cool", new int[]{0}));
+        add(new User(0,"Jane Doe", "janed6@illinois.edu", "(324) 325-3463", "I have a cat", new Integer[]{1,2,4}));
+        add(new User(1,"John Doe", "jognd18@illinois.edu",  "(645) 824-3857", "I am pretty cool", new Integer[]{0,4}));
+        add(new User(2,"Patty Kake", "pk12@illinois.edu",  "(582) 145-2858", "I like big cakes", new Integer[]{0,3}));
+        add(new User(3,"Gunther Smith", "gsmith@illinois.edu",  "(123) 623-2837", "I like 2 floor houses", new Integer[]{2}));
+        add(new User(4,"Jake Blake", "jbl2@illinois.edu",  "(512) 623-5315", "I am pretty suave", new Integer[]{0,1}));
     }};
+
+    public static Integer findConnections(int user1Id, int user2Id) {
+        HashSet<Integer> set = new HashSet<>();
+
+        set.addAll(Arrays.asList(findUserByID(user1Id, false).connectionIDs));
+        set.retainAll(Arrays.asList(findUserByID(user2Id, false).connectionIDs));
+        return set.size();
+    }
 
     public static User findUserByID(int id, boolean populate) {
         for (User user: users) {
@@ -129,4 +147,14 @@ public class SampleData {
         add(new Review(0, 0, 4.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
         add(new Review(1, 1, 2.5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"));
     }};
+
+    public static Review findReview(int userId, int buildingId) {
+        for (Review review : reviews) {
+            if (review.userID == userId && review.buildingID == buildingId) {
+                return review;
+            }
+        }
+
+        return null;
+    }
 }

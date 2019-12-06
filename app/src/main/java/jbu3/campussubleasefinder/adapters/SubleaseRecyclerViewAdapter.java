@@ -3,6 +3,7 @@ package jbu3.campussubleasefinder.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.R;
+import jbu3.campussubleasefinder.models.Review;
 import jbu3.campussubleasefinder.models.Sublease;
 
 public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRecyclerViewAdapter.ViewHolder> {
@@ -43,6 +46,20 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Sublease sublease = mData.get(position);
 
+        holder.nameText.setText(SampleData.findUserByID(sublease.sublessorID, false).name);
+        Review review = SampleData.findReview(sublease.sublessorID, sublease.buildingID);
+        if (review != null) {
+            holder.ratingText.setText(Double.toString(review.rating));
+        }
+        else {
+            // no reviews yet
+            holder.ratingText.setText("0");
+        }
+        holder.connectionsText.setText(SampleData.findConnections(0, sublease.sublessorID).toString());
+        holder.detailsText.setText(sublease.details);
+        holder.priceText.setText(sublease.price + "/month");
+        holder.startText.setText("Start: " + sublease.startDate);
+        holder.endText.setText("End: " + sublease.endDate);
     }
 
     // total number of rows
@@ -56,6 +73,13 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
     public class ViewHolder extends RecyclerView.ViewHolder {
         View cardView;
 
+        TextView nameText;
+        TextView ratingText;
+        TextView connectionsText;
+        TextView detailsText;
+        TextView priceText;
+        TextView startText;
+        TextView endText;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -66,6 +90,14 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
                     if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
                 }
             });
+
+            nameText = itemView.findViewById(R.id.sublease_name_text_view);
+            ratingText = itemView.findViewById(R.id.sublease_rating_text_view);
+            connectionsText = itemView.findViewById(R.id.sublease_connections_text_view);
+            detailsText = itemView.findViewById(R.id.sublease_details_text_view);
+            priceText = itemView.findViewById(R.id.sublease_price_text_view);
+            startText = itemView.findViewById(R.id.sublease_start_date_text_view);
+            endText = itemView.findViewById(R.id.sublease_end_date_text_view);
         }
     }
 
