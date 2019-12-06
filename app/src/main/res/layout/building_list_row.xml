@@ -136,7 +136,7 @@
                 android:layout_height="30dp"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:scaleType="fitCenter"
-                android:tint="@android:color/holo_blue_light"
+                android:tint="#ffa500"
                 app:srcCompat="@drawable/ic_map_black_36dp" />
 
         </LinearLayout>
