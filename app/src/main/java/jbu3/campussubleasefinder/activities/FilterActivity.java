@@ -66,7 +66,9 @@ public class FilterActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(FilterActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        startDate = new Date(datePicker.getCalendarView().getDate());
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(year, month, day);
+                        startDate = calendar.getTime();
                         startDateText.setText((month + 1) + "/" + day + "/" + year);
                     }
                 }, year, month, dayOfMonth);
@@ -85,7 +87,9 @@ public class FilterActivity extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(FilterActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                    endDate = new Date(datePicker.getCalendarView().getDate());
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(year, month, day);
+                    endDate = calendar.getTime();
                     endDateText.setText((month + 1) + "/" + day + "/" + year);
                     }
                 }, year, month, dayOfMonth);

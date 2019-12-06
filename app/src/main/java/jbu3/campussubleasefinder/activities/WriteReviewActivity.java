@@ -25,6 +25,13 @@ public class WriteReviewActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Button postButton = findViewById(R.id.review_post_button);
+        postButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 //        imageToUpload = findViewById(R.id.ImageToUpload);
 //
 //        Button bUploadImage = findViewById(R.id.bUploadImage);

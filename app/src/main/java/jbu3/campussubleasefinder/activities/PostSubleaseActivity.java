@@ -107,6 +107,14 @@ public class PostSubleaseActivity extends AppCompatActivity {
             startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
             }
         });
+
+        Button postButton = findViewById(R.id.post_sublease_post_button);
+        postButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
