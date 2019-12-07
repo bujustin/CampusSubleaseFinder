@@ -11,20 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.function.Predicate;
 
 import jbu3.campussubleasefinder.SampleData;
 import jbu3.campussubleasefinder.activities.BuildingActivity;
 import jbu3.campussubleasefinder.adapters.ReviewsRecyclerViewAdapter;
-import jbu3.campussubleasefinder.adapters.SubleaseRecyclerViewAdapter;
 import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.R;
-import jbu3.campussubleasefinder.models.Review;
-import jbu3.campussubleasefinder.models.Sublease;
 
 
 public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerViewAdapter.ItemClickListener {
@@ -71,13 +64,19 @@ public class BuildingInfoFragment extends Fragment implements ReviewsRecyclerVie
         reviewsRecyclerView.setAdapter(reviewsAdapter);
 
         TextView price = view.findViewById(R.id.building_info_price);
-        TextView numSubleases = view.findViewById(R.id.building_info_num_subleases);
+        TextView parking = view.findViewById(R.id.building_info_parking);
         TextView numBedrooms = view.findViewById(R.id.building_info_num_beds);
         TextView petsAllowed = view.findViewById(R.id.building_info_pets_allowed);
 
         price.setText(building.priceRange);
-        numSubleases.setText(Integer.toString(building.subleases.size()));
         numBedrooms.setText(building.numBedroomRange);
+
+        if (building.parking) {
+            parking.setText("Parking");
+        } else {
+            parking.setText("No parking");
+        }
+
         if (building.pets) {
             petsAllowed.setText("Pets allowed");
         } else {

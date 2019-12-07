@@ -249,37 +249,10 @@
                 android:id="@+id/post_sublease_parking_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginRight="20dp"
                 android:checked="false"
                 android:showText="false" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="10dp"
-                    android:text="Parking Price:"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/post_sublease_parking_price_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:hint="Eg. $80"
-                    android:inputType="text"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

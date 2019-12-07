@@ -107,21 +107,15 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_vpn_key_black_24dp"
+                        android:src="@drawable/ic_directions_car_black_24dp"
                         android:tint="@color/colorAccent" />
 
                     <TextView
+                        android:id="@+id/building_info_parking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Subleases: "
-                        android:textColor="@color/text_color" />
-
-                    <TextView
-                        android:id="@+id/building_info_num_subleases"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1" />
+                        android:text="Parking" />
 
                 </LinearLayout>
 
