@@ -53,11 +53,11 @@ public class SubleaseActivity extends AppCompatActivity {
 
         TextView address = findViewById(R.id.sublease_address);
         TextView sublessorName = findViewById(R.id.sublessor_name);
-        TextView subleaseRent=findViewById(R.id.sublease_price);
-        TextView subleaseStartDate= findViewById(R.id.sublease_start_date);
-        TextView subleaseEndDate= findViewById(R.id.sublease_end_date);
-        TextView subleaseNumBed= findViewById(R.id.sublease_number_of_beds);
-        TextView subleaseNumBath= findViewById(R.id.sublease_number_of_baths);
+        TextView subleaseRent = findViewById(R.id.sublease_price);
+        TextView subleaseStartDate = findViewById(R.id.sublease_start_date);
+        TextView subleaseEndDate = findViewById(R.id.sublease_end_date);
+        TextView subleaseNumBed = findViewById(R.id.sublease_number_of_beds);
+        TextView subleaseNumBath = findViewById(R.id.sublease_number_of_baths);
         TextView subleaseDetails = findViewById(R.id.sublease_details);
 
         User user = SampleData.findUserByID(sublease.sublessorID, true);
@@ -72,14 +72,17 @@ public class SubleaseActivity extends AppCompatActivity {
         subleaseNumBath.setText(Integer.toString(sublease.numBaths));
         subleaseDetails.setText(sublease.details);
 
-        Review review = SampleData.findReview(sublease.sublessorID, sublease.buildingID);
-        if (review != null) {
-            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText(Double.toString(review.rating));
-        }
-        else {
-            // no reviews yet
-            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText("0");
-        }
+        ((TextView)findViewById(R.id.sublease_rating_text_view)).setText(Double.toString(user.rating));
+
+//        Review review = SampleData.findReview(sublease.sublessorID, sublease.buildingID);
+//        if (review != null) {
+//            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText(Double.toString(review.rating));
+//        }
+//        else {
+//            // no reviews yet
+//            ((TextView)findViewById(R.id.sublease_rating_text_view)).setText("0");
+//        }
+
         ((TextView)findViewById(R.id.sublease_connections_text_view)).setText(SampleData.findNumConnections(0, sublease.sublessorID).toString());
     }
 

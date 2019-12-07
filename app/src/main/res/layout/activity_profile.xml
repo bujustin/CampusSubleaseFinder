@@ -16,7 +16,7 @@
             android:id="@+id/header_background"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@color/colorPrimary" />
+            android:background="@color/colorPrimaryMed" />
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image_view"
@@ -159,11 +159,11 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:tint="@color/colorAccent"
-                    android:src="@drawable/ic_star_gray_24dp" />
+                    android:src="@drawable/ic_star_gray_24dp"
+                    android:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/profile_ratings_text_view"

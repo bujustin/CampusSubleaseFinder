@@ -110,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity
         ((EditText)findViewById(R.id.profile_name_edit_text)).setText(user.name);
         ((EditText)findViewById(R.id.profile_email_edit_text)).setText(user.email);
         ((EditText)findViewById(R.id.profile_phone_edit_text)).setText(user.phone);
-        ((TextView)findViewById(R.id.profile_ratings_text_view)).setText(String.format("%.2f", user.getAvgRating()));
+        ((TextView)findViewById(R.id.profile_ratings_text_view)).setText(String.format("%.2f", user.rating));
         ((TextView)findViewById(R.id.profile_num_reviews_text_view)).setText("("+Integer.toString(user.reviews.size())+")");
     }
 

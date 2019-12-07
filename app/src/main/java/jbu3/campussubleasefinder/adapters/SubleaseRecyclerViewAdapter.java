@@ -19,6 +19,7 @@ import jbu3.campussubleasefinder.models.Building;
 import jbu3.campussubleasefinder.R;
 import jbu3.campussubleasefinder.models.Review;
 import jbu3.campussubleasefinder.models.Sublease;
+import jbu3.campussubleasefinder.models.User;
 
 public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRecyclerViewAdapter.ViewHolder> {
 
@@ -45,16 +46,10 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Sublease sublease = mData.get(position);
+        final User user = SampleData.findUserByID(sublease.sublessorID, true);
 
-        holder.nameText.setText(SampleData.findUserByID(sublease.sublessorID, false).name);
-        Review review = SampleData.findReview(sublease.sublessorID, sublease.buildingID);
-        if (review != null) {
-            holder.ratingText.setText(Double.toString(review.rating));
-        }
-        else {
-            // no reviews yet
-            holder.ratingText.setText("0");
-        }
+        holder.nameText.setText(user.name);
+        holder.ratingText.setText(Double.toString(user.rating));
         holder.connectionsText.setText(SampleData.findNumConnections(0, sublease.sublessorID).toString());
         holder.detailsText.setText(sublease.details);
         holder.priceText.setText("$" + sublease.price + "/month");

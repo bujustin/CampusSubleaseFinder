@@ -10,48 +10,50 @@
     <!-- Top bar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="80dp"
-        android:paddingBottom="10dp"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimaryMed"
+        android:gravity="bottom"
         android:orientation="vertical"
-        android:background="@color/colorPrimary" >
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/sublease_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:text="403 W Example St"
             android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:text="403 W Example St"/>
+            android:textSize="30dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_marginLeft="20dp"
                 android:id="@+id/sublessor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Jane Doe"
                 android:textColor="#ffffff"
-                android:textSize="40dp"
-                android:text="Jane Doe"/>
+                android:textSize="40dp" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/ic_star_white_24dp" />
+
             <TextView
                 android:id="@+id/sublease_rating_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="3.5"
                 android:textColor="#ffffff"
-                android:textSize="20dp"
-                android:text="3.5"/>
+                android:textSize="20dp" />
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
@@ -65,6 +67,20 @@
                 android:text=" 20"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/sublease_profile_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:text="Profile"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -116,8 +132,8 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/ic_attach_money_gray_24dp"
                                 android:tint="@color/colorAccent" />
 
@@ -143,8 +159,8 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/ic_hotel_gray_24dp"
                                 android:tint="@color/colorAccent" />
 
@@ -169,8 +185,8 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/ic_date_range_gray_24dp"
                                 android:tint="@color/colorAccent" />
 
@@ -208,8 +224,8 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/ic_hot_tub_gray_24dp"
                                 android:tint="@color/colorAccent" />
 
@@ -235,8 +251,8 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/ic_date_range_gray_24dp"
                                 android:tint="@color/colorAccent" />
 
@@ -300,15 +316,6 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:paddingTop="10dp">
-
-        <Button
-            android:id="@+id/sublease_profile_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@color/colorPrimary"
-            android:text="Profile"
-            android:textColor="#FFFFFFFF" />
 
         <Button
             android:id="@+id/sublease_review_button"

@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements BuildingRecyclerV
     @Override
     public void onItemClick(View view, int position) {
         Intent showBuildingIntent = new Intent(this, BuildingActivity.class);
-        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_ID, position);
+        showBuildingIntent.putExtra(BuildingActivity.ARG_BUILDING_ID, SampleData.filteredBuildings.get(position).id);
         startActivity(showBuildingIntent);
     }
 }

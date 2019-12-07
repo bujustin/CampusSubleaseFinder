@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.media.Rating;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class FilterActivity extends AppCompatActivity {
     RadioGroup numBathroomRadio;
     Switch parkingSwitch;
     Switch petSwitch;
+    Switch connectionSwitch;
     RatingBar ratingBar;
     Button filterButton;
 
@@ -108,11 +111,12 @@ public class FilterActivity extends AppCompatActivity {
 
         parkingSwitch = findViewById(R.id.filter_parking_switch);
         petSwitch = findViewById(R.id.filter_pet_switch);
+        connectionSwitch = findViewById(R.id.filter_connection_switch);
         ratingBar = findViewById(R.id.filter_rating);
 
         filterButton = findViewById(R.id.filter_button);
 
-        loadFilters();
+        loadFilters(SampleData.currentFilters);
 
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,42 +143,45 @@ public class FilterActivity extends AppCompatActivity {
                 int numBeds = -1;
                 int radioButtonID = numBedroomsRadio.getCheckedRadioButtonId();
                 if (radioButtonID > 0) {
-                    numBeds = numBedroomsRadio.indexOfChild(numBedroomsRadio.findViewById(radioButtonID));
+                    numBeds = numBedroomsRadio.indexOfChild(numBedroomsRadio.findViewById(radioButtonID)) + 1;
                 }
 
                 int numBaths = -1;
                 radioButtonID = numBathroomRadio.getCheckedRadioButtonId();
                 if (radioButtonID > 0) {
-                    numBaths = numBathroomRadio.indexOfChild(numBedroomsRadio.findViewById(radioButtonID));
+                    numBaths = numBathroomRadio.indexOfChild(numBathroomRadio.findViewById(radioButtonID)) + 1;
                 }
 
-                SampleData.setFilteredBuildings(new FilterData(addressText.getText().toString(), startDate, endDate, minPrice, maxPrice, numBeds, numBaths, ratingBar.getRating(), parkingSwitch.isChecked(), petSwitch.isChecked()));
+                SampleData.setFilteredBuildings(new FilterData(addressText.getText().toString(), startDate, endDate, minPrice, maxPrice, numBeds, numBaths, ratingBar.getRating(), parkingSwitch.isChecked(), petSwitch.isChecked(), connectionSwitch.isChecked()));
                 finish();
             }
         });
     }
 
-    private void loadFilters() {
-        addressText.setText(SampleData.currentFilters.address);
-        if (SampleData.currentFilters.minPrice == 0) {
+    private void loadFilters(FilterData filters) {
+        addressText.setText(filters.address);
+        if (filters.minPrice == 0) {
             priceCheck400.setChecked(true);
         } else {
             priceCheck400.setChecked(false);
         }
 
-        if (SampleData.currentFilters.minPrice <= 400 && SampleData.currentFilters.maxPrice >= 800) {
+        if (filters.minPrice <= 400 && filters.maxPrice >= 800) {
             priceCheck400_800.setChecked(true);
         } else {
             priceCheck400_800.setChecked(false);
         }
 
-        if (SampleData.currentFilters.maxPrice > 800) {
+        if (filters.maxPrice > 800) {
             priceCheck800.setChecked(true);
         } else {
             priceCheck800.setChecked(false);
         }
 
-        switch (SampleData.currentFilters.bed) {
+        switch (filters.bed) {
+            case -1:
+                numBedroomsRadio.clearCheck();
+                break;
             case 1:
                 numBedroomsRadio.check(R.id.filter_bed_radio_1);
                 break;
@@ -192,7 +199,10 @@ public class FilterActivity extends AppCompatActivity {
                 break;
         }
 
-        switch (SampleData.currentFilters.bath) {
+        switch (filters.bath) {
+            case -1:
+                numBathroomRadio.clearCheck();
+                break;
             case 1:
                 numBathroomRadio.check(R.id.filter_bath_radio_1);
                 break;
@@ -210,35 +220,50 @@ public class FilterActivity extends AppCompatActivity {
                 break;
         }
 
-        ratingBar.setRating((float) SampleData.currentFilters.rating);
+        ratingBar.setRating((float) filters.rating);
 
-        parkingSwitch.setChecked(SampleData.currentFilters.parking);
-        petSwitch.setChecked(SampleData.currentFilters.pets);
+        parkingSwitch.setChecked(filters.parking);
+        petSwitch.setChecked(filters.pets);
+        connectionSwitch.setChecked(filters.connection);
 
         Calendar cal = Calendar.getInstance();
-        if (SampleData.currentFilters.startDate != null) {
-            cal.setTime(SampleData.currentFilters.startDate);
+        if (filters.startDate != null) {
+            cal.setTime(filters.startDate);
             int year = cal.get(Calendar.YEAR);
             int month = cal.get(Calendar.MONTH);
             int day = cal.get(Calendar.DAY_OF_MONTH);
             startDateText.setText((month + 1) + "/" + day + "/" + year);
-            startDate = SampleData.currentFilters.startDate;
+            startDate = filters.startDate;
+        } else {
+            startDateText.setText("");
         }
 
-        if (SampleData.currentFilters.endDate != null) {
-            cal.setTime(SampleData.currentFilters.endDate);
+        if (filters.endDate != null) {
+            cal.setTime(filters.endDate);
             int year = cal.get(Calendar.YEAR);
             int month = cal.get(Calendar.MONTH);
             int day = cal.get(Calendar.DAY_OF_MONTH);
             endDateText.setText((month + 1) + "/" + day + "/" + year);
-            endDate = SampleData.currentFilters.endDate;
+            endDate = filters.endDate;
+        } else {
+            endDateText.setText("");
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.filter_menu, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            case R.id.menu_filter_clear:
+                loadFilters(new FilterData());
+                return true;
             case android.R.id.home:
                 finish();
                 return true;

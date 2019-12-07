@@ -10,12 +10,13 @@ public class FilterData {
     public int maxPrice = -1;
     public int bed = -1;
     public int bath = -1;
-    public double rating = -1;
+    public double rating = 0;
     public boolean parking = false;
     public boolean pets = false;
+    public boolean connection = false;
 
     public FilterData() { }
-    public FilterData(String address, Date startDate, Date endDate, int minPrice, int maxPrice, int bed, int bath, double rating, boolean parking, boolean pets) {
+    public FilterData(String address, Date startDate, Date endDate, int minPrice, int maxPrice, int bed, int bath, double rating, boolean parking, boolean pets, boolean connection) {
         this.address = address;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -26,5 +27,6 @@ public class FilterData {
         this.rating = rating;
         this.parking = parking;
         this.pets = pets;
+        this.connection = connection;
     }
 }

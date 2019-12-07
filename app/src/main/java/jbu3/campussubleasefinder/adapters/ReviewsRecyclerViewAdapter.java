@@ -43,7 +43,7 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Review review = mData.get(position);
-        holder.nameText.setText(SampleData.findUserByID(review.userID, false).name);
+        holder.nameText.setText(SampleData.findUserByID(review.sublesseeID, false).name);
         holder.ratingsBar.setRating((float)review.rating);
         holder.detailsText.setText(review.text);
     }
