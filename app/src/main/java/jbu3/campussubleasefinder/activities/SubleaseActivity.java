@@ -63,6 +63,13 @@ public class SubleaseActivity extends AppCompatActivity {
         User user = SampleData.findUserByID(sublease.sublessorID, true);
         Building building = SampleData.findBuildingByID(sublease.buildingID);
 
+        ImageView connectionImage = findViewById(R.id.sublease_connection_image);
+        if (SampleData.isConnection(user.id)) {
+            connectionImage.setVisibility(View.VISIBLE);
+        } else {
+            connectionImage.setVisibility(View.GONE);
+        }
+
         address.setText(building.address);
         sublessorName.setText(user.name);
         subleaseRent.setText(Integer.toString(sublease.price));

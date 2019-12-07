@@ -46,6 +46,12 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
         holder.nameText.setText(SampleData.findUserByID(review.sublesseeID, false).name);
         holder.ratingsBar.setRating((float)review.rating);
         holder.detailsText.setText(review.text);
+
+        if (SampleData.isConnection(review.sublesseeID)) {
+            holder.connectionImage.setVisibility(View.VISIBLE);
+        } else {
+            holder.connectionImage.setVisibility(View.GONE);
+        }
     }
 
     // total number of rows
@@ -59,6 +65,7 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     public class ViewHolder extends RecyclerView.ViewHolder {
         View cardView;
 
+        ImageView connectionImage;
         TextView nameText;
         RatingBar ratingsBar;
         TextView detailsText;
@@ -73,6 +80,7 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
                 }
             });
 
+            connectionImage = itemView.findViewById(R.id.review_row_connection_image);
             nameText = itemView.findViewById(R.id.review_row_name);
             ratingsBar = itemView.findViewById(R.id.review_row_rating);
             detailsText = itemView.findViewById(R.id.review_row_details);

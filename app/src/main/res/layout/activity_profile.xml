@@ -32,6 +32,16 @@
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="5dp" />
 
+        <ImageView
+            android:id="@+id/profile_connection_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@+id/profile_image_view"
+            android:layout_alignBottom="@+id/profile_image_view"
+            android:tint="@color/colorPrimary"
+            android:translationZ="5dp"
+            app:srcCompat="@drawable/ic_favorite_black_24dp" />
+
     </RelativeLayout>
 
     <ScrollView

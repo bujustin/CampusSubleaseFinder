@@ -48,6 +48,11 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
         final Sublease sublease = mData.get(position);
         final User user = SampleData.findUserByID(sublease.sublessorID, true);
 
+        if (SampleData.isConnection(user.id)) {
+            holder.connectionImage.setVisibility(View.VISIBLE);
+        } else {
+            holder.connectionImage.setVisibility(View.GONE);
+        }
         holder.nameText.setText(user.name);
         holder.ratingText.setText(Double.toString(user.rating));
         holder.connectionsText.setText(SampleData.findNumConnections(0, sublease.sublessorID).toString());
@@ -68,6 +73,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
     public class ViewHolder extends RecyclerView.ViewHolder {
         View cardView;
 
+        ImageView connectionImage;
         TextView nameText;
         TextView ratingText;
         TextView connectionsText;
@@ -86,6 +92,7 @@ public class SubleaseRecyclerViewAdapter extends RecyclerView.Adapter<SubleaseRe
                 }
             });
 
+            connectionImage = itemView.findViewById(R.id.sublease_row_connection_image);
             nameText = itemView.findViewById(R.id.sublease_row_name_text_view);
             ratingText = itemView.findViewById(R.id.sublease_row_rating_text_view);
             connectionsText = itemView.findViewById(R.id.sublease_row_connections_text_view);

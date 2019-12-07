@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -102,6 +103,12 @@ public class ProfileActivity extends AppCompatActivity
             }
         });
 
+        ImageView connectionImage = findViewById(R.id.profile_connection_image);
+        if (SampleData.isConnection(user.id)) {
+            connectionImage.setVisibility(View.VISIBLE);
+        } else {
+            connectionImage.setVisibility(View.GONE);
+        }
     }
 
 

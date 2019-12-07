@@ -40,10 +40,10 @@ public class SampleData {
                         if (sublease.price < minBuildingPrice) {
                             minBuildingPrice = sublease.price;
                         }
-                        if (Arrays.asList(users.get(0).connectionIDs).contains(sublease.sublessorID)) {
+                        if (SampleData.isConnection(sublease.sublessorID)) {
                             building.numConnections++;
                         }
-                        if (sublease.price > filters.minPrice && (filters.maxPrice < 0 || sublease.price < filters.maxPrice) && (filters.bed < 0 || sublease.numBeds == filters.bed) && (filters.bath < 0 || sublease.numBaths == filters.bath) && (!filters.connection || Arrays.asList(users.get(0).connectionIDs).contains(sublease.sublessorID))) {
+                        if (sublease.price > filters.minPrice && (filters.maxPrice < 0 || sublease.price < filters.maxPrice) && (filters.bed < 0 || sublease.numBeds == filters.bed) && (filters.bath < 0 || sublease.numBaths == filters.bath) && (!filters.connection || isConnection(sublease.sublessorID))) {
                             SimpleDateFormat format = new SimpleDateFormat("M/d/yy");
                             try {
                                 Date subStartDate = format.parse(sublease.startDate);
@@ -163,6 +163,10 @@ public class SampleData {
         add(new User(3,"Gunther Smith", "gsmith@illinois.edu",  "(123) 623-2837", "I like 2 floor houses", new Integer[]{2}));
         add(new User(4,"Jake Blake", "jbl2@illinois.edu",  "(512) 623-5315", "I am pretty suave", new Integer[]{0,1}));
     }};
+
+    public static boolean isConnection(int otherUserID) {
+        return Arrays.asList(users.get(0).connectionIDs).contains(otherUserID);
+    }
 
     public static Integer findNumConnections(int user1Id, int user2Id) {
         HashSet<Integer> set = new HashSet<>();
